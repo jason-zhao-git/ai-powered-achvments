@@ -31,9 +31,9 @@ const Loginapp = () => {
         </div>
 
         <Tilt>
-          <div className="container h-136 w-136 bg-white bg-opacity-10 rounded-full shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex flex-col justify-center items-center p-6">
+          <div className="container h-144 w-144 bg-white bg-opacity-10 rounded-full shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex flex-col justify-center items-center p-6">
             <div className="text-center w-5/6 h-1/3 -mt-4">
-              <div className="text-gray-700 font-poppins text-3xl tracking-widest inline-block text-center mb-8">
+              <div className="text-gray-700 font-poppins font-semibold text-3xl tracking-widest inline-block text-center mb-8">
                 <TypeAnimation
                   sequence={[
                     "Your Life,\n Your Path,\n Your Achievements!",
