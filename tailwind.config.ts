@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
+  important: true,
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -22,6 +23,7 @@ const config = {
         '1/6': '16.666667%',
         '1/7': '14.285714%',
         '1/10': '10.0%',
+        '1/15': '6.7%',
       },
       width: {
         '40-r': '40rem',

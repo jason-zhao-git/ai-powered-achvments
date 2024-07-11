@@ -6,6 +6,7 @@ import { signInAction } from "@/serveractions/auth-action";
 import Image from "next/image";
 // typing animation
 import { TypeAnimation } from "react-type-animation";
+import Link from "next/link";
 
 const Loginapp = () => {
   return (
@@ -72,12 +73,18 @@ const Loginapp = () => {
                 />
               </Button>
             </form>
+            <form
+              className="w-full flex flex-col items-center"
+              action="/demo"
+            >
             <Button
               variant={"outline"}
               className="w-3/4 bg-gray-500 text-white rounded-lg p-2 mt-4"
             >
               Demo Link
             </Button>
+            </form>
+
             <div className="mt-4 text-white text-opacity-75 -mb-4">
               Powered by OpenAI
             </div>

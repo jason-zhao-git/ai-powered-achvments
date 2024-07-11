@@ -3,7 +3,7 @@ import ConvexClientProvider from "../providers";
 import { auth } from "@/auth";
 import SideBar from "@/components/navbar/SideBar.jsx";
 import SearchandMobile from "@/components/navbar/SearchandMobile";
-import { primaryNavItems } from "@/utils/index";
+import { demoNavItems } from "@/utils/index";
 
 export default async function LoggedInLayout({
   children,
@@ -19,7 +19,7 @@ export default async function LoggedInLayout({
               <div className="mb-3">
                 <SearchandMobile />
               </div>
-              <SideBar primaryNavItems={primaryNavItems} />
+              <SideBar primaryNavItems={demoNavItems}/>
             </div>
           </div>
           <main className="flex-1">
