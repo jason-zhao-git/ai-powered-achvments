@@ -1,0 +1,37 @@
+
+The Task Schema:
+const taskNodeSchema = {
+  id: '1', // Unique identifier for the node
+  type: 'task', // Type of the node, can be other types too
+  data: {
+    label: 'Input Node', // Display label for the node
+    title: <div>Test Test</div>, // JSX element for the title
+    parentQuest: 'Parent Quest ID or Name', // Identifier or name of the parent quest
+    description: 'This is a description of the task', // Non-empty description of the task
+    subtasks: [], // Array of subtasks, can be empty
+    isCompleted: false, // Boolean indicating if the task is completed
+    createdAt: new Date().toISOString(), // Timestamp when the task was created
+    completedAt: null, // Timestamp when the task was completed, null if not completed
+    connections: {
+      up: {
+        hasSocket: false, // Boolean indicating if there is a socket at this position
+        socketType: null, // Type of socket at this position, 'src' or 'target', null if no socket
+      },
+      down: {
+        hasSocket: false, // Boolean indicating if there is a socket at this position
+        socketType: null, // Type of socket at this position, 'src' or 'target', null if no socket
+      },
+      left: {
+        hasSocket: false, // Boolean indicating if there is a socket at this position
+        socketType: null, // Type of socket at this position, 'src' or 'target', null if no socket
+      },
+      right: {
+        hasSocket: false, // Boolean indicating if there is a socket at this position
+        socketType: null, // Type of socket at this position, 'src' or 'target', null if no socket
+      },
+    },
+  },
+  position: { x: 250, y: 25 }, // Position of the node on the canvas
+};
+
+
