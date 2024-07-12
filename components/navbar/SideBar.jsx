@@ -5,8 +5,9 @@ import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import Tilt from "react-parallax-tilt";
 import UserProfile from "./UserProfile";
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 import { primaryNavItems } from "@/utils/index";
-import "../css/navbar.css";
 
 export default function SideBar( { primaryNavItems } ) {
 
@@ -14,7 +15,7 @@ export default function SideBar( { primaryNavItems } ) {
   return (
     <div className="hidden sm:block">
       <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
-        <div className="container h-144 w-64 bg-white bg-opacity-30 rounded-lg shadow-lg border-2 border-opacity-30 border-white backdrop-filter backdrop-blur-sm backdrop-saturate-200 flex flex-col justify-start items-center p-6 overflow-y-scroll custom-scrollbar">
+        <ScrollArea className="container h-144 w-64 bg-white bg-opacity-30 rounded-lg shadow-lg border-2 border-opacity-30 border-white backdrop-filter backdrop-blur-sm backdrop-saturate-200 flex flex-col justify-start items-center p-6">
           <div className="flex h-full w-full flex-col gap-2 bg-transparent">
             <div className="flex h-14 items-center pb-4 border-b-2 px-6 lg:h-[60px] lg:px-6">
               <UserProfile />
@@ -34,7 +35,7 @@ export default function SideBar( { primaryNavItems } ) {
               </nav>
             </div>
           </div>
-        </div>
+        </ScrollArea>
       </Tilt>
     </div>
   );

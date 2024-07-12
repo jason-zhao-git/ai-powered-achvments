@@ -4,17 +4,18 @@ import { Handle, Position } from "@xyflow/react";
 import Image from "next/image";
 import "../../css/nodes.css";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
 
 export default memo(({ data, isConnectable }) => {
     const [isHovered, setIsHovered] = useState(false);
   return (
     <>
-      <HoverCard>
-        <HoverCardTrigger>
+      <Popover>
+        <PopoverTrigger>
           <div
             className="relative flex items-center justify-center bg-transparent border-2 border-gray-500 rounded-md shadow-lg group !transition-all !duration-500"
             onMouseEnter={() => setIsHovered(true)}
@@ -28,8 +29,8 @@ export default memo(({ data, isConnectable }) => {
             />
             {isHovered && <span className=" text-white px-2">{data.title}</span>}
           </div>
-        </HoverCardTrigger>
-        <HoverCardContent className="p-4 bg-gray-800 text-white rounded-md shadow-lg">
+        </PopoverTrigger>
+        <PopoverContent className="p-4 bg-gray-800 text-white rounded-md shadow-lg">
           <div className="flex items-center space-x-4">
             <Image
               src={data.imageSrc || "/achvAIrm.png"}
@@ -42,8 +43,8 @@ export default memo(({ data, isConnectable }) => {
               <p>{data.description}</p>
             </div>
           </div>
-        </HoverCardContent>
-      </HoverCard>
+        </PopoverContent>
+      </Popover>
       <Handle
         type="target"
         position={Position.Top}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback } from "react";
 import {
   ReactFlow,
   MiniMap,
@@ -9,7 +9,8 @@ import {
   useEdgesState,
   addEdge,
   useReactFlow,
-  ReactFlowProvider
+  ReactFlowProvider,
+  Panel,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -17,8 +18,11 @@ import defaultNodes from "./nodes";
 import defaultEdges from "./edges";
 
 import TaskNode from "./nodes/TaskNode.jsx";
-import CustomNode from './nodes/CardNote.jsx';
-import AddNodeModal from './AddNodeModal';
+import CustomNode from "./nodes/CardNote.jsx";
+import AddNodeModal from "./AddNodeModal";
+import CustomControls from "./controls/CustomControls.jsx"
+
+// the following is everything about the flow bg in the tutorial page
 
 const nodeTypes = {
   task: TaskNode,
@@ -51,12 +55,6 @@ function FlowComponent() {
 
   return (
     <div className="h-full">
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="mb-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-      >
-        Add Node
-      </button>
       <AddNodeModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -71,8 +69,9 @@ function FlowComponent() {
         onConnect={onConnect}
         fitView
       >
+        
+        <CustomControls onAddNode={() => setIsModalOpen(true)} />
         <Background />
-        <Controls />
         <MiniMap nodeStrokeWidth={3} zoomable pannable />
       </ReactFlow>
     </div>

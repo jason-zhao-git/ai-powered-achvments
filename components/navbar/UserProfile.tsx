@@ -11,15 +11,17 @@ import {
 import { Button } from "../ui/button";
 import { signOutAction } from "@/serveractions/auth-action";
 
-const defaultImage ="/achvAI.png";
+const defaultImage ="/icons/google.svg";
+const defaultName = "Guest User";
 
 export default function UserProfile() {
   const session = useSession();
 
-  const imageUrl = session?.data?.user?.image;
-  const name = session?.data?.user?.name;
+  const imageUrl = session?.data?.user?.image ?? defaultImage;
+  const name = session?.data?.user?.name ?? defaultName;
   const email = session?.data?.user?.email;
 
+  console.log(imageUrl);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="hover:cursor-pointer transition-colors duration-200 hover:bg-gray-200 hover:font-semibold">
@@ -29,14 +31,14 @@ export default function UserProfile() {
         >
           {imageUrl && (
             <Image
-            src={session?.data?.user?.image ?? defaultImage}
+            src={imageUrl}
             width={24}
             height={24}
             alt={`profile picture`}
             className="rounded-full"
           />
           )}
-          <p className="truncate">{name}</p>
+          <p className="truncate font-semibold">{name}</p>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-full hidden md:block">
