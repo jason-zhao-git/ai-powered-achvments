@@ -11,7 +11,7 @@ import {
 import { Button } from "../ui/button";
 import { signOutAction } from "@/serveractions/auth-action";
 
-const defaultImage ="/achvAI.png";
+const defaultImage ="/achvAIrm.png";
 
 export default function UserProfileMobile() {
   const session = useSession();

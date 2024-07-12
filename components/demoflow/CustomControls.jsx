@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStoreApi, useReactFlow, Panel } from '@xyflow/react';
+import Image from 'next/image';
 
 // Import the SVG icons
-import AddNodeIcon from '/public/icons/controls/add_node.svg';
-import ZoomInIcon from '/public/icons/controls/zoom_in.svg';
-import ZoomOutIcon from '/public/icons/controls/zoom_out.svg';
-import FitViewIcon from '/public/icons/controls/fit_view.svg';
-import ToggleInteractivityIcon from '/public/icons/controls/toggle_interactivity.svg';
+import AddNodeIcon from '/public/Icons/Controls/add-node.svg';
+import ZoomInIcon from '/public/Icons/Controls/zoom-in.svg';
+import ZoomOutIcon from '/public/Icons/Controls/zoom-out.svg';
+import FitViewIcon from '/public/Icons/Controls/fit-view.svg';
+import LockIcon from '/public/Icons/Controls/Lock.svg';
+import UnlockIcon from '/public/Icons/Controls/Unlock.svg';
+import Layout from '/public/Icons/Controls/Layout.svg';
 
 const panelStyle = {
   color: '#777',
@@ -18,6 +21,7 @@ const buttonStyle = "flex items-center gap-3 rounded-lg p-2 text-base text-white
 const CustomControls = ({ onAddNode }) => {
   const store = useStoreApi();
   const { zoomIn, zoomOut, fitView } = useReactFlow();
+  const [isInteractive, setIsInteractive] = useState(true);
 
   const onFitViewHandler = () => {
     fitView({ duration: 1000 });
@@ -25,11 +29,13 @@ const CustomControls = ({ onAddNode }) => {
 
   const onToggleInteractivity = () => {
     const { nodesDraggable, nodesConnectable, elementsSelectable } = store.getState();
+    const newInteractivityState = !nodesDraggable;
     store.setState({
-      nodesDraggable: !nodesDraggable,
-      nodesConnectable: !nodesConnectable,
-      elementsSelectable: !elementsSelectable,
+      nodesDraggable: newInteractivityState,
+      nodesConnectable: newInteractivityState,
+      elementsSelectable: newInteractivityState,
     });
+    setIsInteractive(newInteractivityState);
   };
 
   return (
@@ -40,7 +46,7 @@ const CustomControls = ({ onAddNode }) => {
         aria-label="Add Node"
         title="Add Node"
       >
-        <img src={AddNodeIcon} alt="Add Node" />
+        <Image src={AddNodeIcon} alt="Add Node" width={24} height={24} />
       </button>
       <button 
         onClick={zoomIn} 
@@ -48,7 +54,7 @@ const CustomControls = ({ onAddNode }) => {
         aria-label="Zoom In"
         title="Zoom In"
       >
-        <img src={ZoomInIcon} alt="Zoom In" />
+        <Image src={ZoomInIcon} alt="Zoom In" width={24} height={24} />
       </button>
       <button 
         onClick={zoomOut} 
@@ -56,7 +62,7 @@ const CustomControls = ({ onAddNode }) => {
         aria-label="Zoom Out"
         title="Zoom Out"
       >
-        <img src={ZoomOutIcon} alt="Zoom Out" />
+        <Image src={ZoomOutIcon} alt="Zoom Out" width={24} height={24} />
       </button>
       <button 
         onClick={onFitViewHandler} 
@@ -64,7 +70,7 @@ const CustomControls = ({ onAddNode }) => {
         aria-label="Fit View"
         title="Fit View"
       >
-        <img src={FitViewIcon} alt="Fit View" />
+        <Image src={FitViewIcon} alt="Fit View" width={24} height={24} />
       </button>
       <button 
         onClick={onToggleInteractivity} 
@@ -72,7 +78,7 @@ const CustomControls = ({ onAddNode }) => {
         aria-label="Toggle Interactivity"
         title="Toggle Interactivity"
       >
-        <img src={ToggleInteractivityIcon} alt="Toggle Interactivity" />
+        <Image src={isInteractive ? UnlockIcon : LockIcon} alt="Toggle Interactivity" width={24} height={24} />
       </button>
     </Panel>
   );

@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/mainflow/Tutorial.jsx", "components/mainflow/nodes/index.jsx", "components/mainflow/edges/index.jsx", "components/navbar/SideBar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/mainflow/Tutorial.jsx", "components/mainflow/nodes/index.jsx", "components/mainflow/edges/index.jsx", "components/navbar/SideBar.jsx", "components/navbar/NewSideBar.jsx"],
   "exclude": ["node_modules"]
 }

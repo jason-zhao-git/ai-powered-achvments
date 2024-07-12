@@ -14,13 +14,13 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import defaultNodes from "./nodes";
-import defaultEdges from "./edges";
+import defaultNodes from "./Nodes";
+import defaultEdges from "./Edges";
 
-import TaskNode from "./nodes/TaskNode.jsx";
-import CustomNode from "./nodes/CardNote.jsx";
+import TaskNode from "./Nodes/TaskNode.jsx";
+import CustomNode from "./Nodes/CardNote.jsx";
 import AddNodeModal from "./AddNodeModal";
-import CustomControls from "./controls/CustomControls.jsx"
+import CustomControls from "./CustomControls.jsx"
 
 // the following is everything about the flow bg in the tutorial page
 

@@ -30,3 +30,5 @@ export default [
     style: { backgroundColor: '#6ede87', color: 'white' },
   },
 ];
+
+
