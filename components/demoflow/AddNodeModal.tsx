@@ -3,11 +3,19 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import AddNodeForm from "./AddNodeForm"; // Adjust the path as necessary
+import AddNodeForm from "./AddNodeForm.jsx"; // Adjust the path as necessary
 
 // Import the Close icon
 import CloseIcon from "/public/Icons/Close.svg";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectGroup,
+} from "@/components/ui/select";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -50,6 +58,7 @@ const AddNodeModal: React.FC<AddNodeModalProps> = ({ isOpen, onClose, onAddNode 
 
   const handleSubmit = (data: any) => {
     onAddNode(data);
+    
     form.reset();
     onClose();
   };
@@ -70,6 +79,7 @@ const AddNodeModal: React.FC<AddNodeModalProps> = ({ isOpen, onClose, onAddNode 
         <div className="flex justify-center">
           <h2 className="text-2xl text-white/80 font-mono">Add New Node</h2>
         </div>
+        
         <ScrollArea className="max-h-[70vh] overflow-y-auto">
           <AddNodeForm form={form} handleSubmit={handleSubmit} />
         </ScrollArea>

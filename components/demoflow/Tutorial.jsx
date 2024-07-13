@@ -43,12 +43,25 @@ function FlowComponent() {
     [setEdges]
   );
 
-  const addNode = ({ name, type }) => {
+  const addNode = ({ name, nodeType, description, subtasks, connections }) => {
     const newNode = {
       id: `${nodes.length + 1}`,
-      data: { label: name },
+      data: {
+        label: name,
+        description: description,
+        subtasks: subtasks,
+        connections: {
+          up: connections.up === 'none' ? null : connections.up,
+          down: connections.down === 'none' ? null : connections.down,
+          left: connections.left === 'none' ? null : connections.left,
+          right: connections.right === 'none' ? null : connections.right,
+        },
+        isCompleted: false,
+        createdAt: new Date().toISOString(),
+        completedAt: null,
+      },
       position: { x: Math.random() * 250, y: Math.random() * 250 },
-      type,
+      type: nodeType,
     };
     reactFlowInstance.setNodes((nds) => nds.concat(newNode));
   };
@@ -69,7 +82,6 @@ function FlowComponent() {
         onConnect={onConnect}
         fitView
       >
-        
         <CustomControls onAddNode={() => setIsModalOpen(true)} />
         <Background />
         <MiniMap nodeStrokeWidth={3} zoomable pannable />
