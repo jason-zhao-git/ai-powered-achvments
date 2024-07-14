@@ -42,7 +42,7 @@ const CustomControls = ({ onAddNode }) => {
     <Panel position="top-center" style={panelStyle} className="z-50 bg-white bg-opacity-30 rounded-lg shadow-lg border-2 border-opacity-30 border-white backdrop-filter backdrop-blur-sm backdrop-saturate-200 flex flex-row">
       <button 
         onClick={onAddNode} 
-        className={`bg-gray-200 ${buttonStyle}`}
+        className={` ${buttonStyle}`}
         aria-label="Add Node"
         title="Add Node"
       >
@@ -50,7 +50,7 @@ const CustomControls = ({ onAddNode }) => {
       </button>
       <button 
         onClick={zoomIn} 
-        className={`bg-gray-200 ${buttonStyle}`}
+        className={` ${buttonStyle}`}
         aria-label="Zoom In"
         title="Zoom In"
       >
@@ -58,7 +58,7 @@ const CustomControls = ({ onAddNode }) => {
       </button>
       <button 
         onClick={zoomOut} 
-        className={`bg-gray-200 ${buttonStyle}`}
+        className={` ${buttonStyle}`}
         aria-label="Zoom Out"
         title="Zoom Out"
       >
@@ -66,7 +66,7 @@ const CustomControls = ({ onAddNode }) => {
       </button>
       <button 
         onClick={onFitViewHandler} 
-        className={`bg-gray-200 ${buttonStyle}`}
+        className={` ${buttonStyle}`}
         aria-label="Fit View"
         title="Fit View"
       >
@@ -74,7 +74,7 @@ const CustomControls = ({ onAddNode }) => {
       </button>
       <button 
         onClick={onToggleInteractivity} 
-        className={`bg-gray-200 ${buttonStyle}`}
+        className={` ${buttonStyle}`}
         aria-label="Toggle Interactivity"
         title="Toggle Interactivity"
       >

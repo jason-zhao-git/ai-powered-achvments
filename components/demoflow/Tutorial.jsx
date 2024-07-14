@@ -47,7 +47,7 @@ function FlowComponent() {
     const newNode = {
       id: `${nodes.length + 1}`,
       data: {
-        label: name,
+        name: name,
         description: description,
         subtasks: subtasks,
         connections: {

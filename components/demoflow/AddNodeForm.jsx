@@ -36,7 +36,7 @@ const SelectGrid = ({ connections, setConnections }) => (
         <SelectContent>
           <SelectGroup>
             <SelectItem value="none">None</SelectItem>
-            <SelectItem value="src">Source</SelectItem>
+            <SelectItem value="source">Source</SelectItem>
             <SelectItem value="target">Target</SelectItem>
           </SelectGroup>
         </SelectContent>
@@ -111,7 +111,7 @@ const SelectGrid = ({ connections, setConnections }) => (
 const AddNodeForm = ({ form, handleSubmit }) => {
   const [nodeType, setNodeType] = useState("task");
   const [connections, setConnections] = useState({
-    up: "src",
+    up: "source",
     down: "target",
     left: "none",
     right: "none",

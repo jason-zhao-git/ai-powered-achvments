@@ -1,19 +1,61 @@
-.shadow-custom {
-  box-shadow:
-    0 4px 6px -1px rgba(255, 255, 255, 0.5),
-    0 2px 4px -1px rgba(255, 255, 255, 0.5);
+/* styles/nodes.css */
+
+.hover-effect {
+  position: relative;
+  overflow: visible;
 }
 
-.hover\:shadow-custom-lg:hover {
-  box-shadow:
-    0 10px 15px -3px rgba(255, 255, 255, 0.5),
-    0 4px 6px -2px rgba(255, 255, 255, 0.5);
+.hover-effect::before,
+.hover-effect::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border: 2px solid teal;
+  border-radius: 8px;
+  opacity: 0;
+  animation: circle 2s linear infinite;
 }
 
-.task-node {
-    transition: width 0.5s ease-in-out;
-  }
+.hover-effect::after {
+  animation-delay: 1s;
+}
 
-  .task-node.expanded {
-    width: 200px; /* Adjust the width as needed */
+@keyframes circle {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.9);
   }
+  50% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.9);
+  }
+}
+
+.custom-node-title {
+  font-size: 0.6rem !important;
+}
+
+.hover-effect:hover .custom-node-title {
+  left: 130%; /* Adjusted to move slightly to the right */
+  opacity: 1;
+}
+
+.customHandle {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  transform: none;
+  border: none;
+  opacity: 0;
+}

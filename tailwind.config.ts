@@ -1,14 +1,15 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   important: true,
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./styles/**/*.{js,ts,jsx,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -20,26 +21,27 @@ const config = {
     },
     extend: {
       inset: {
-        '1/6': '16.666667%',
-        '1/7': '14.285714%',
-        '1/10': '10.0%',
-        '1/15': '6.7%',
+        "1/6": "16.666667%",
+        "1/7": "14.285714%",
+        "1/10": "10.0%",
+        "1/15": "6.7%",
       },
       width: {
-        '40-r': '40rem',
-        '35-r': '35rem',
-        '30-r': '30rem'
+        "40-r": "40rem",
+        "35-r": "35rem",
+        "30-r": "30rem",
       },
       height: {
-        '40-r': '40rem',
-        '35-r': '35rem',
-        '30-r': '30rem'
+        "40-r": "40rem",
+        "35-r": "35rem",
+        "30-r": "30rem",
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif']
+        poppins: ["Poppins", "sans-serif"],
+        pixel: ["Minecraftia", "sans-serif"],
       },
       boxShadow: {
-        '5xl': '40px 40px 50px rgba(0, 0, 0, 0.5)',
+        "5xl": "40px 40px 50px rgba(0, 0, 0, 0.5)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -96,19 +98,19 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       spacing: {
-        '128': '32rem',
-        '136': '34rem',
-        '144': '36rem',
-        '160': '40rem',
+        "128": "32rem",
+        "136": "34rem",
+        "144": "36rem",
+        "160": "40rem",
       },
     },
   },
   variants: {
     extend: {
-      backdropFilter: ['responsive'], // Ensure responsive support for backdropFilter
+      backdropFilter: ["responsive"], // Ensure responsive support for backdropFilter
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

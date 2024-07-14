@@ -8,17 +8,10 @@ import AddNodeForm from "./AddNodeForm.jsx"; // Adjust the path as necessary
 // Import the Close icon
 import CloseIcon from "/public/Icons/Close.svg";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-  Select,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectGroup,
-} from "@/components/ui/select";
+
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(40, { message: "Name must be at most 40 characters." }),
   nodeType: z.string().min(1, { message: "Please select a node type." }),
   description: z.string().min(1, { message: "Description cannot be empty." }),
   subtasks: z
