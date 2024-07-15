@@ -8,7 +8,7 @@ export default [
       subtasks: ['Install Node.js', 'Install VSCode', 'Clone repository'],
       connections: {
         up: null,
-        down: 'src',
+        down: 'source',
         left: null,
         right: null,
       },
@@ -24,7 +24,7 @@ export default [
       subtasks: ['Identify entities', 'Define relationships', 'Create ER diagram'],
       connections: {
         up: 'target',
-        down: 'src',
+        down: 'source',
         left: null,
         right: null,
       },
@@ -40,8 +40,8 @@ export default [
       subtasks: ['Set up Express.js', 'Define routes', 'Implement controllers', 'Write unit tests'],
       connections: {
         up: 'target',
-        down: 'src',
-        left: 'src',
+        down: 'source',
+        left: 'source',
         right: null,
       },
     },
@@ -55,7 +55,7 @@ export default [
       description: 'Create the user interface for the application using React.',
       subtasks: ['Set up React project', 'Create components', 'Implement state management', 'Style components'],
       connections: {
-        up: 'src',
+        up: 'source',
         down: 'target',
         left: null,
         right: 'target',
@@ -71,10 +71,10 @@ export default [
       description: 'Conduct thorough testing and quality assurance for the application.',
       subtasks: ['Write integration tests', 'Perform manual testing', 'Fix bugs', 'Document test cases'],
       connections: {
-        up: 'src',
+        up: 'source',
         down: null,
-        left: null,
-        right: 'src',
+        left: 'target',
+        right: 'source',
       },
     },
     position: { x: 900, y: 100 },

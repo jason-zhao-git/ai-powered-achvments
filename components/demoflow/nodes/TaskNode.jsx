@@ -11,9 +11,9 @@ import {
 import TriangleUpIcon from "/public/Icons/Nodes/triangle-up.svg";
 import TriangleDownIcon from "/public/Icons/Nodes/triangle-down.svg";
 import TriangleLeftIcon from "/public/Icons/Nodes/triangle-left.svg";
-import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg"; 
+import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg";
 
-const TaskNode = ({ data, isConnectable, dragging }) => {
+const TaskNode = ({ id, data, isConnectable, dragging }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -62,6 +62,7 @@ const TaskNode = ({ data, isConnectable, dragging }) => {
           <Handle
             type={data.connections.up}
             position={Position.Top}
+            id={`${id}-up`}
             className="z-20 !bg-transparent !border-0 handle"
             isConnectable={isConnectable}
           />
@@ -85,6 +86,7 @@ const TaskNode = ({ data, isConnectable, dragging }) => {
           <Handle
             type={data.connections.down}
             position={Position.Bottom}
+            id={`${id}-down`}
             className="z-20 !bg-transparent !border-0 handle"
             isConnectable={isConnectable}
           />
@@ -108,6 +110,7 @@ const TaskNode = ({ data, isConnectable, dragging }) => {
           <Handle
             type={data.connections.left}
             position={Position.Left}
+            id={`${id}-left`}
             className="z-20 -mt-0.5 -ml-1 !bg-transparent !border-0"
             isConnectable={isConnectable}
           />
@@ -131,6 +134,7 @@ const TaskNode = ({ data, isConnectable, dragging }) => {
           <Handle
             type={data.connections.right}
             position={Position.Right}
+            id={`${id}-right`}
             className="z-20 -mt-0.5 -mr-1 !bg-transparent !border-0"
             isConnectable={isConnectable}
           />

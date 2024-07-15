@@ -22,6 +22,8 @@ import CustomNode from "./Nodes/CardNote.jsx";
 import AddNodeModal from "./AddNodeModal";
 import CustomControls from "./CustomControls.jsx"
 
+
+
 // the following is everything about the flow bg in the tutorial page
 
 const nodeTypes = {
@@ -37,6 +39,7 @@ function FlowComponent() {
 
   const onConnect = useCallback(
     (connection) => {
+      console.log('Connection:', connection);
       const edge = { ...connection, type: "smoothstep" };
       setEdges((eds) => addEdge(edge, eds));
     },
@@ -65,6 +68,8 @@ function FlowComponent() {
     };
     reactFlowInstance.setNodes((nds) => nds.concat(newNode));
   };
+
+
 
   return (
     <div className="h-full">
