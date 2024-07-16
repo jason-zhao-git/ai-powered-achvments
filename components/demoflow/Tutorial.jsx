@@ -72,6 +72,14 @@ function FlowComponent() {
     restoreFlow();
   }, [setNodes, setViewport]);
 
+  useEffect(() => {
+    onRestore();
+  }, [onRestore]);
+
+  useEffect(() => {
+    onSave();
+  }, [nodes, edges, onSave]);
+
   const addNode = ({ name, nodeType, description, subtasks, connections }) => {
     const newNode = {
       id: `${nodes.length + 1}`,
