@@ -14,10 +14,6 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(40, { message: "Name must be at most 40 characters." }),
   nodeType: z.string().min(1, { message: "Please select a node type." }),
   description: z.string().min(1, { message: "Description cannot be empty." }),
-  subtasks: z
-    .string()
-    .transform((str) => (str ? str.split(",").map((s) => s.trim()) : []))
-    .optional(),
   connections: z.object({
     up: z.string().nullable().optional(),
     down: z.string().nullable().optional(),
@@ -39,7 +35,6 @@ const AddNodeModal: React.FC<AddNodeModalProps> = ({ isOpen, onClose, onAddNode 
       name: "",
       nodeType: "task",
       description: "",
-      subtasks: [],
       connections: {
         up: null,
         down: null,

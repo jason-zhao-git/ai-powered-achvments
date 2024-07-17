@@ -1,3 +1,4 @@
+// TaskNode.jsx
 "use client";
 import React, { memo, useState } from "react";
 import { Handle, Position, NodeProps } from "@xyflow/react";
@@ -12,146 +13,200 @@ import TriangleUpIcon from "/public/Icons/Nodes/triangle-up.svg";
 import TriangleDownIcon from "/public/Icons/Nodes/triangle-down.svg";
 import TriangleLeftIcon from "/public/Icons/Nodes/triangle-left.svg";
 import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg";
+import TaskDialog from "../AddNode/TaskDialog.jsx"; // Import the dialog component
+import { useReactFlow } from "@xyflow/react";
 
 const TaskNode = ({ id, data, isConnectable, dragging }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [nodeData, setNodeData] = useState(data);
+  const { getNode, updateNodeData } = useReactFlow();
+
+  const handleSave = (updatedData) => {
+    const existingNode = getNode(id);
+    if (!existingNode) return;
+
+    const updatedNodeData = {
+      name: updatedData.name,
+      description: updatedData.description,
+      isCompleted: updatedData.isCompleted,
+      subtasks: updatedData.subtasks,
+    };
+
+    if (updatedData.isCompleted && !existingNode.data.isCompleted) {
+      updatedNodeData.completedAt = new Date().toISOString();
+    }
+    if (!updatedData.isCompleted && existingNode.data.isCompleted) {
+      updatedNodeData.completedAt = null;
+    }
+
+    updateNodeData(id, updatedNodeData, { replace: false });
+    
+    setNodeData((prevData) => ({ ...prevData, ...updatedNodeData }));
+    
+  };
+
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    setDialogOpen(!dialogOpen);
+  };
 
   return (
     <>
-      <Popover>
-        <PopoverTrigger>
-          <div
-            className={`relative flex items-center justify-center bg-transparent border-2 border-gray-500 rounded-md shadow-lg group !transition-all !duration-500 ${
-              isHovered ? "hover-effect" : ""
-            }`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+      <div onContextMenu={handleContextMenu}>
+        <Popover>
+          <PopoverTrigger asChild>
+            <div
+              className={`relative flex items-center justify-center bg-transparent border-2 border-gray-500 rounded-md shadow-lg group !transition-all !duration-500 ${
+                isHovered ? "hover-effect" : ""
+              }`}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <Image
+                src={nodeData.imageSrc || "/icons/google.svg"}
+                alt={nodeData.alt || "Task Image"}
+                width={24}
+                height={24}
+              />
+              {isHovered && !dragging && !popoverOpen && (
+                <span className="custom-node-title absolute z-50 -mr-48 font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-1">
+                  {nodeData.name}
+                </span>
+              )}
+            </div>
+          </PopoverTrigger>
+
+          <PopoverContent
+            onOpenAutoFocus={() => {
+              setPopoverOpen(true);
+            }}
+            onCloseAutoFocus={() => {
+              setPopoverOpen(false);
+            }}
+            className="p-4 mt-4 bg-gray-800 text-white rounded-md shadow-lg"
           >
-            <Image
-              src={data.imageSrc || "/icons/google.svg"}
-              alt={data.alt || "Task Image"}
-              width={24}
-              height={24}
-            />
-            {isHovered && !dragging && (
-              <span className=" custom-node-title absolute -mr-48 font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-1">
-                {data.name}
-              </span>
-            )}
-          </div>
-        </PopoverTrigger>
-        <PopoverContent className="p-4 mt-4 bg-gray-800 text-white rounded-md shadow-lg">
-          <div className="flex flex-wrap">
-            <Image
-              src={data.imageSrc || "/achvAIrm.png"}
-              alt={data.alt || "Task Image"}
-              width={48}
-              height={48}
-            />
+            <div className="flex flex-wrap">
+              <Image
+                src={nodeData.imageSrc || "/achvAIrm.png"}
+                alt={nodeData.alt || "Task Image"}
+                width={48}
+                height={48}
+              />
 
-            <h3 className="text-md font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-3 mt-2">
-              {data.name}
-            </h3>
-            <p>{data.description}</p>
-          </div>
-        </PopoverContent>
-      </Popover>
+              <h3 className="text-md font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-3 mt-2">
+                {nodeData.name}
+              </h3>
+              <p className="min-w-40">{nodeData.description}</p>
+            </div>
+          </PopoverContent>
+        </Popover>
 
-      {data.connections.up !== null && (
-        <>
-          <Handle
-            type={data.connections.up}
-            position={Position.Top}
-            id={`${id}-up`}
-            className="z-20 !bg-transparent !border-0 handle"
-            isConnectable={isConnectable}
-          />
-          <div className="absolute top-0 left-1/2 -mt-2 transform -translate-x-1/2 z-10">
-            <Image
-              src={
-                data.connections.up === "target"
-                  ? TriangleDownIcon
-                  : TriangleUpIcon
-              }
-              alt="Triangle Up"
-              width={8}
-              height={8}
+        {nodeData.connections.up !== null && (
+          <>
+            <Handle
+              type={nodeData.connections.up}
+              position={Position.Top}
+              id={`${id}-up`}
+              className="z-20 !bg-transparent !border-0 handle"
+              isConnectable={isConnectable}
             />
-          </div>
-        </>
-      )}
+            <div className="absolute top-0 left-1/2 -mt-2 transform -translate-x-1/2 z-10">
+              <Image
+                src={
+                  nodeData.connections.up === "target"
+                    ? TriangleDownIcon
+                    : TriangleUpIcon
+                }
+                alt="Triangle Up"
+                width={8}
+                height={8}
+              />
+            </div>
+          </>
+        )}
 
-      {data.connections.down !== null && (
-        <>
-          <Handle
-            type={data.connections.down}
-            position={Position.Bottom}
-            id={`${id}-down`}
-            className="z-20 !bg-transparent !border-0 handle"
-            isConnectable={isConnectable}
-          />
-          <div className="absolute bottom-0 left-1/2 -mb-1 transform -translate-x-1/2 z-10">
-            <Image
-              src={
-                data.connections.down === "target"
-                  ? TriangleUpIcon
-                  : TriangleDownIcon
-              }
-              alt="Triangle Down"
-              width={8}
-              height={8}
+        {nodeData.connections.down !== null && (
+          <>
+            <Handle
+              type={nodeData.connections.down}
+              position={Position.Bottom}
+              id={`${id}-down`}
+              className="z-20 !bg-transparent !border-0 handle"
+              isConnectable={isConnectable}
             />
-          </div>
-        </>
-      )}
+            <div className="absolute bottom-0 left-1/2 -mb-2 transform -translate-x-1/2 z-10">
+              <Image
+                src={
+                  nodeData.connections.down === "target"
+                    ? TriangleUpIcon
+                    : TriangleDownIcon
+                }
+                alt="Triangle Down"
+                width={8}
+                height={8}
+              />
+            </div>
+          </>
+        )}
 
-      {data.connections.left !== null && (
-        <>
-          <Handle
-            type={data.connections.left}
-            position={Position.Left}
-            id={`${id}-left`}
-            className="z-20 -mt-0.5 -ml-1 !bg-transparent !border-0"
-            isConnectable={isConnectable}
-          />
-          <div className="absolute left-0 top-1/2 -ml-2 -mt-0.5 transform -translate-y-1/2 z-10">
-            <Image
-              src={
-                data.connections.left === "target"
-                  ? TriangleRightIcon
-                  : TriangleLeftIcon
-              }
-              alt="Triangle Left"
-              width={8}
-              height={8}
+        {nodeData.connections.left !== null && (
+          <>
+            <Handle
+              type={nodeData.connections.left}
+              position={Position.Left}
+              id={`${id}-left`}
+              className="z-20 -mt-0.5 -ml-1 !bg-transparent !border-0"
+              isConnectable={isConnectable}
             />
-          </div>
-        </>
-      )}
+            <div className="absolute left-0 top-1/2 -ml-2 -mt-0.5 transform -translate-y-1/2 z-10">
+              <Image
+                src={
+                  nodeData.connections.left === "target"
+                    ? TriangleRightIcon
+                    : TriangleLeftIcon
+                }
+                alt="Triangle Left"
+                width={8}
+                height={8}
+              />
+            </div>
+          </>
+        )}
 
-      {data.connections.right !== null && (
-        <>
-          <Handle
-            type={data.connections.right}
-            position={Position.Right}
-            id={`${id}-right`}
-            className="z-20 -mt-0.5 -mr-1 !bg-transparent !border-0"
-            isConnectable={isConnectable}
-          />
-          <div className="absolute right-0 top-1/2 -mr-2 -mt-0.5 transform -translate-y-1/2 z-10">
-            <Image
-              src={
-                data.connections.right === "target"
-                  ? TriangleLeftIcon
-                  : TriangleRightIcon
-              }
-              alt="Triangle Right"
-              width={8}
-              height={8}
+        {nodeData.connections.right !== null && (
+          <>
+            <Handle
+              type={nodeData.connections.right}
+              position={Position.Right}
+              id={`${id}-right`}
+              className="z-20 -mt-0.5 -mr-1 !bg-transparent !border-0"
+              isConnectable={isConnectable}
             />
+            <div className="absolute right-0 top-1/2 -mr-2 -mt-0.5 transform -translate-y-1/2 z-10">
+              <Image
+                src={
+                  nodeData.connections.right === "target"
+                    ? TriangleLeftIcon
+                    : TriangleRightIcon
+                }
+                alt="Triangle Right"
+                width={8}
+                height={8}
+              />
+            </div>
+          </>
+        )}
+        {dialogOpen && (
+          <div
+            className="absolute ml-5 -mt-4 z-50"
+            style={{ transform: "translate(100%, 0)" }}
+          >
+            <TaskDialog nodeData={nodeData} onSave={handleSave} />
           </div>
-        </>
-      )}
+        )}
+      </div>
     </>
   );
 };

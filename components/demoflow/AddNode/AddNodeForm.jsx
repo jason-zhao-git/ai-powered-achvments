@@ -190,26 +190,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="subtasks"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white/80">
-                Subtasks (comma separated)
-              </FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Enter Subtasks"
-                  {...field}
-                  className="text-black"
-                  onChange={(e) => field.onChange(e.target.value)}
-                />
-              </FormControl>
-              <FormMessage className="text-white/80" />
-            </FormItem>
-          )}
-        />
+        
         <Button type="submit" className="w-full bg-blue-500 text-white">
           Add Node
         </Button>

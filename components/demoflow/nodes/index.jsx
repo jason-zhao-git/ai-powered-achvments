@@ -37,7 +37,7 @@ export default [
     data: {
       name: 'Build API',
       description: 'Develop the RESTful API endpoints for the application.',
-      subtasks: ['Set up Express.js', 'Define routes', 'Implement controllers', 'Write unit tests'],
+      subtasks: [],
       connections: {
         up: 'target',
         down: 'source',
