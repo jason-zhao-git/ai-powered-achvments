@@ -43,9 +43,8 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
     }
 
     updateNodeData(id, updatedNodeData, { replace: false });
-    
+
     setNodeData((prevData) => ({ ...prevData, ...updatedNodeData }));
-    
   };
 
   const handleContextMenu = (e) => {
@@ -59,17 +58,18 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
         <Popover>
           <PopoverTrigger asChild>
             <div
-              className={`relative flex items-center justify-center bg-transparent border-2 border-gray-500 rounded-md shadow-lg group !transition-all !duration-500 ${
+              className={`relative flex items-center justify-center   shadow-lg group !transition-all !duration-500 ${
                 isHovered ? "hover-effect" : ""
-              }`}
+              } ${nodeData.isCompleted ? " border-yellow-500 border-double border-4 shadow-[0_0_10px_2px_rgba(255,215,0,0.6)]" : "border-gray-500 rounded-sm border-[3px]"}`}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <Image
                 src={nodeData.imageSrc || "/icons/google.svg"}
                 alt={nodeData.alt || "Task Image"}
-                width={24}
-                height={24}
+                width={35}
+                height={35}
+                className={`bg-gray-100/90 p-0.5 ${nodeData.isCompleted ? "rounded-lg border-yellow-500 border" : "rounded-sm border-gray-500"}`}
               />
               {isHovered && !dragging && !popoverOpen && (
                 <span className="custom-node-title absolute z-50 -mr-48 font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-1">
@@ -94,6 +94,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
                 alt={nodeData.alt || "Task Image"}
                 width={48}
                 height={48}
+                className="bg-gray-200 rounded-md shadow-lg"
               />
 
               <h3 className="text-md font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-3 mt-2">

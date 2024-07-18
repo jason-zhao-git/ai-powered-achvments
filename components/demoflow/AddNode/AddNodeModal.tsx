@@ -65,7 +65,7 @@ const AddNodeModal: React.FC<AddNodeModalProps> = ({ isOpen, onClose, onAddNode 
           </button>
         </div>
         <div className="flex justify-center">
-          <h2 className="text-2xl text-white/80 font-mono">Add New Node</h2>
+          <h2 className="text-2xl text-white/80 font-pixel">Add New Node</h2>
         </div>
         
         <ScrollArea className="max-h-[70vh] overflow-y-auto">

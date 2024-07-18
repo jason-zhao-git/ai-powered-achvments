@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 const SelectGrid = ({ connections, setConnections }) => (
   <div className="grid grid-cols-2 gap-4 mt-4">
     <div>
-      <FormLabel className="text-white/80">Up Socket</FormLabel>
+      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Up Socket</p></FormLabel>
       <Select
         defaultValue={connections.up}
         onValueChange={(value) =>
@@ -43,7 +43,7 @@ const SelectGrid = ({ connections, setConnections }) => (
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80">Down Socket</FormLabel>
+      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Down Socket:</p></FormLabel>
       <Select
         defaultValue={connections.down}
         onValueChange={(value) =>
@@ -64,7 +64,7 @@ const SelectGrid = ({ connections, setConnections }) => (
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80">Left Socket</FormLabel>
+      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Left Socket:</p></FormLabel>
       <Select
         defaultValue={connections.left}
         onValueChange={(value) =>
@@ -85,7 +85,7 @@ const SelectGrid = ({ connections, setConnections }) => (
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80">Right Socket</FormLabel>
+      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Right Socket:</p></FormLabel>
       <Select
         defaultValue={connections.right}
         onValueChange={(value) =>
@@ -130,7 +130,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
   return (
     <Form {...form}>
       <span>
-        <FormLabel className="text-white/80">Node Type</FormLabel>
+        <FormLabel className="text-white/80"> <p className="font-pixel mt-5 mb-2">Node Type:</p></FormLabel>
         <Select
           defaultValue={nodeType}
           onValueChange={(value) => setNodeType(value)}
@@ -160,7 +160,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white/80">Name</FormLabel>
+              <FormLabel className="text-white/80"><p className="font-pixel mt-5 mb-2">Name:</p></FormLabel>
               <FormControl>
                 <Input
                   placeholder="Enter Name"
@@ -177,7 +177,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white/80">Description</FormLabel>
+              <FormLabel className="text-white/80"><p className="font-pixel mt-5 mb-2">Description:</p></FormLabel>
               <FormControl>
                 <Input
                   placeholder="Enter Description"

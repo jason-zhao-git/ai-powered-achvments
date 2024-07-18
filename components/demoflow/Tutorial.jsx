@@ -110,6 +110,12 @@ function FlowComponent() {
     setNodes((nds) => applyNodeChanges([nodeChange], nds));
   };
 
+  const nodeColor = (node) => {
+    if (node.type === 'task') {
+      return node.data.isCompleted ? '#FFD700' : '#1C1C1C';
+    }
+    return '#2E2E2E';
+  };
   
 
   return (
@@ -131,7 +137,7 @@ function FlowComponent() {
       >
         <CustomControls onAddNode={() => setIsModalOpen(true)} />
         <Background />
-        <MiniMap nodeStrokeWidth={3} zoomable pannable />
+        <MiniMap nodeStrokeWidth={3} zoomable pannable nodeColor={nodeColor} />
       </ReactFlow>
     </div>
   );

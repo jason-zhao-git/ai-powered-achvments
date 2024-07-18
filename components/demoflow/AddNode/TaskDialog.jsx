@@ -27,8 +27,10 @@ import {
   BadgeCheck,
   BadgeAlert,
   ScrollText,
+  FileImage,
 } from "lucide-react"; // Add the icons
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 
 const TaskDialog = ({ nodeData, onSave }) => {
   const {
@@ -49,7 +51,9 @@ const TaskDialog = ({ nodeData, onSave }) => {
   const [taskImage, setTaskImage] = useState(imageSrc);
 
   const handleSave = () => {
-    const filteredSubtasks = taskSubtasks.filter(subtask => subtask.subtask.trim() !== "");
+    const filteredSubtasks = taskSubtasks.filter(
+      (subtask) => subtask.subtask.trim() !== ""
+    );
     onSave({
       name: taskName,
       description: taskDescription,
@@ -103,7 +107,7 @@ const TaskDialog = ({ nodeData, onSave }) => {
     };
     reader.readAsDataURL(file);
   };
- 
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -129,17 +133,28 @@ const TaskDialog = ({ nodeData, onSave }) => {
                   className="my-2 w-full h-20 text-sm text-gray-900 border rounded p-2 focus:outline-none"
                 />
                 <div className="mt-4">
-                  <Label className="flex items-start">Upload SVG</Label>
+                  <Label className="flex items-start text-gray-900 font-bold">Update Avatar SVG</Label>
+                  
                   <input
                     type="file"
                     accept=".svg"
                     onChange={handleImageUpload}
-                    className="mt-2"
+                    className="mt-2 mb-1"
                   />
+                  <div>
+                  <a
+                    href="https://www.svgrepo.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 mt-2 w-full"
+                  >
+                    Check out SVG resources on svgrepo.com
+                  </a>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between gap-1 mt-12 border-b-2 border-gray-100 pb-2 flex-wrap sm:justify-between lg:gap-0">
                   <div className="flex gap-1 items-center">
-                    < ScrollText className="w-5 h-5 text-primary" />
+                    <ScrollText className="w-5 h-5 text-primary" />
                     <p className="font-bold flex text-sm text-gray-900">
                       Sub-tasks:
                     </p>
@@ -216,6 +231,19 @@ const TaskDialog = ({ nodeData, onSave }) => {
         <ScrollArea className="w-5/12">
           <div className="flex flex-col gap-2 bg-gray-100 w-full p-4">
             <div className="grid gap-2 p-4 border-b-2 w-full">
+              <Label className="flex items-start">Task Avatar:</Label>
+              <div className="flex items-center justify-start gap-2 pb-2">
+                <FileImage className="w-4 h-4 text-primary capitalize" />
+                <Image
+                  src={imageSrc || "/achvAIrm.png"}
+                  alt={nodeData.alt || "Task Image"}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
+              </div>
+            </div>
+            <div className="grid gap-2 p-4 border-b-2 w-full">
               <Label className="flex items-start">Task Name:</Label>
               <div className="flex text-left items-center justify-start gap-2 pb-2">
                 <Hash className="w-4 h-4 text-primary capitalize" />
@@ -276,7 +304,10 @@ const TaskDialog = ({ nodeData, onSave }) => {
               <Label className="flex items-start">Sub-tasks</Label>
               {subtasks.length > 0 ? (
                 subtasks.map((subtask, index) => (
-                  <div key={index} className="flex text-left items-center justify-start gap-2">
+                  <div
+                    key={index}
+                    className="flex text-left items-center justify-start gap-2"
+                  >
                     {getSubtaskIcon(subtask.isComplete)}
                     <p className="text-sm">{subtask.subtask}</p>
                   </div>
@@ -285,7 +316,6 @@ const TaskDialog = ({ nodeData, onSave }) => {
                 <p className="text-sm">None</p>
               )}
             </div>
-          
           </div>
         </ScrollArea>
       </DialogContent>
