@@ -32,6 +32,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
       description: updatedData.description,
       isCompleted: updatedData.isCompleted,
       subtasks: updatedData.subtasks,
+      imageSrc: updatedData.imageSrc,
     };
 
     if (updatedData.isCompleted && !existingNode.data.isCompleted) {

@@ -39,19 +39,23 @@ const TaskDialog = ({ nodeData, onSave }) => {
     createdAt,
     completedAt,
     isCompleted,
+    imageSrc,
   } = nodeData;
 
   const [taskName, setTaskName] = useState(name);
   const [taskDescription, setTaskDescription] = useState(description);
   const [taskCompleted, setTaskCompleted] = useState(isCompleted);
   const [taskSubtasks, setTaskSubtasks] = useState(subtasks);
+  const [taskImage, setTaskImage] = useState(imageSrc);
 
   const handleSave = () => {
+    const filteredSubtasks = taskSubtasks.filter(subtask => subtask.subtask.trim() !== "");
     onSave({
       name: taskName,
       description: taskDescription,
       isCompleted: taskCompleted,
-      subtasks: taskSubtasks,
+      subtasks: filteredSubtasks,
+      imageSrc: taskImage,
     });
   };
 
@@ -91,6 +95,15 @@ const TaskDialog = ({ nodeData, onSave }) => {
     setTaskSubtasks(taskSubtasks.filter((_, i) => i !== index));
   };
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setTaskImage(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+ 
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -115,6 +128,15 @@ const TaskDialog = ({ nodeData, onSave }) => {
                   onChange={(e) => setTaskDescription(e.target.value)}
                   className="my-2 w-full h-20 text-sm text-gray-900 border rounded p-2 focus:outline-none"
                 />
+                <div className="mt-4">
+                  <Label className="flex items-start">Upload SVG</Label>
+                  <input
+                    type="file"
+                    accept=".svg"
+                    onChange={handleImageUpload}
+                    className="mt-2"
+                  />
+                </div>
                 <div className="flex items-center justify-between gap-1 mt-12 border-b-2 border-gray-100 pb-2 flex-wrap sm:justify-between lg:gap-0">
                   <div className="flex gap-1 items-center">
                     < ScrollText className="w-5 h-5 text-primary" />
@@ -251,20 +273,19 @@ const TaskDialog = ({ nodeData, onSave }) => {
               </div>
             </div>
             <div className="grid gap-2 p-4 border-b-2 w-full">
-              <Label className="flex items-start">Subtasks:</Label>
-              <div className="flex text-left items-center justify-start gap-2 pb-2">
-                {subtasks.length > 0 ? (
-                  subtasks.map((subtask, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      {getSubtaskIcon(subtask.isComplete)}
-                      <p className="text-sm">{subtask.subtask}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-sm">None</p>
-                )}
-              </div>
+              <Label className="flex items-start">Sub-tasks</Label>
+              {subtasks.length > 0 ? (
+                subtasks.map((subtask, index) => (
+                  <div key={index} className="flex text-left items-center justify-start gap-2">
+                    {getSubtaskIcon(subtask.isComplete)}
+                    <p className="text-sm">{subtask.subtask}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm">None</p>
+              )}
             </div>
+          
           </div>
         </ScrollArea>
       </DialogContent>
