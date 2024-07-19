@@ -13,11 +13,12 @@ import {
   Panel,
   getOutgoers,
   applyNodeChanges,
+  applyEdgeChanges,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import defaultNodes from "./Nodes";
-import defaultEdges from "./Edges";
+import defaultNodes from "./Nodes/index.jsx";
+import defaultEdges from "./Edges/index.jsx";
 
 import TaskNode from "./Nodes/TaskNode.jsx";
 import CustomNode from "./Nodes/CardNote.jsx";
@@ -31,31 +32,30 @@ import { Terminal } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-// the following is everything about the flow bg in the tutorial page
-
+// Define nodeTypes and edgeTypes outside the component to ensure they are always available
 const nodeTypes = {
   task: TaskNode,
   custom: CustomNode,
 };
+
 const edgeTypes = {
   task: TaskEdge,
+  default: "smoothstep", // Ensure default type is also specified
 };
 
 function FlowComponent() {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(defaultNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(defaultEdges);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
-  const reactFlowInstance = useReactFlow();
   const { setViewport, getNodes, getEdges, getNode } = useReactFlow();
 
   const flowKey = "tutorial";
 
   const onConnect = useCallback(
     (connection) => {
-      console.log("Connection:", connection);
       const edge = { ...connection, type: "task" };
       setEdges((eds) => addEdge(edge, eds));
     },
@@ -75,14 +75,14 @@ function FlowComponent() {
 
       if (flow) {
         const { x = 0, y = 0, zoom = 1 } = flow.viewport;
-        setNodes(flow.nodes || defaultNodes);
-        setEdges(flow.edges || defaultEdges);
+        setNodes(flow.nodes || []);
+        setEdges(flow.edges || []);
         setViewport({ x, y, zoom });
       }
     };
 
     restoreFlow();
-  }, [setNodes,setEdges, setViewport]);
+  }, [setNodes, setEdges, setViewport]);
 
   useEffect(() => {
     onRestore();
@@ -159,25 +159,7 @@ function FlowComponent() {
     [getNodes, getEdges]
   );
 
-  useEffect(() => {
-    // Reapply edge styles on node changes
-    const updatedEdges = edges.map((edge) => {
-      const sourceNode = getNode(edge.source);
-      const targetNode = getNode(edge.target);
-      return {
-        ...edge,
-        type: !sourceNode.data.isCompleted && !targetNode.data.isCompleted? "smoothstep" : "task",
-        animated: sourceNode.data.isCompleted && !targetNode.data.isCompleted,
-        style: {
-          stroke: "lightgrey",
-          strokeWidth: sourceNode.data.isCompleted && targetNode.data.isCompleted ? 3 : 1,
-        }
-      };
-    });
-    setEdges(updatedEdges);
-  }, [nodes]);
-
-
+  
   return (
     <div className="h-full">
       <AddNodeModal
@@ -199,14 +181,14 @@ function FlowComponent() {
         fitView
       >
         {cycleDetected && (
-            <Alert className="bg-transparent !border-0 text-red-600 text-lg !flex !justify-center">
-              <div className="mt-16 p-4 -mr-3 font-semibold font-pixel">
+          <Alert className="bg-transparent !border-0 text-red-600 text-lg !flex !justify-center">
+            <div className="mt-16 p-4 -mr-3 font-semibold font-pixel">
               <Terminal className="h-4 w-4 mb-2" />
               <AlertDescription>
                 Your edge will create a cycle deadlock.
               </AlertDescription>
-              </div>
-            </Alert>
+            </div>
+          </Alert>
         )}
         <CustomControls onAddNode={() => setIsModalOpen(true)} />
         <Background />

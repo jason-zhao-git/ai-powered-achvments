@@ -3,7 +3,7 @@ import ConvexClientProvider from "../providers";
 import { auth } from "@/auth";
 import SideBar from "@/components/navbar/SideBar.jsx";
 import SearchandMobile from "@/components/navbar/SearchandMobile";
-import { demoNavItems } from "@/utils/index";
+import { demoNavItems, questItems } from "@/utils/index";
 import UserProfile from "@/components/navbar/UserProfile";
 
 export default async function LoggedInLayout({
@@ -21,7 +21,7 @@ export default async function LoggedInLayout({
           </div>
         </div>
         <div className="hidden sm:block">
-          <SideBar primaryNavItems={demoNavItems} />
+          <SideBar primaryNavItems={demoNavItems} questItems={questItems} />
         </div>
       </div>
       <main className="flex-1">{children}</main>

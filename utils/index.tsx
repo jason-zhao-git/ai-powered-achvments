@@ -1,4 +1,16 @@
-import { Calendar, CalendarDays, Grid2X2, Inbox, Book } from "lucide-react";
+import {
+  Calendar,
+  CalendarDays,
+  Grid2X2,
+  Inbox,
+  Book,
+  Bot,
+  Code,
+  Music,
+  Dumbbell,
+  BookOpen,
+  CodeXml,
+} from "lucide-react";
 
 export const primaryNavItems = [
   {
@@ -8,7 +20,7 @@ export const primaryNavItems = [
   },
   {
     id: "primary",
-    name: "Inbox",
+    name: "Main",
     link: "/loggedin",
     icon: <Inbox className="w-4 h-4" />,
   },
@@ -104,9 +116,31 @@ export const demoNavItems = [
   },
   {
     id: "primary",
-    name: "Inbox",
+    name: "Main",
     link: "/demo",
-    icon: <Inbox className="w-4 h-4" />,
+    icon: <Bot className="w-4 h-4" />,
   },
-  
+];
+
+export const questItems = [
+  {
+    name: "Code Crusader",
+    icon: <CodeXml className="w-4 h-4" />,
+    link: "/quests/code-crusader",
+  },
+  {
+    name: "Voice Virtuoso",
+    icon: <Music className="w-4 h-4" />,
+    link: "/quests/voice-virtuoso",
+  },
+  {
+    name: "Fit Friends Frenzy",
+    icon: <Dumbbell className="w-4 h-4" />,
+    link: "/quests/fit-friends-frenzy",
+  },
+  {
+    name: "Bookworm Badges",
+    icon: <BookOpen className="w-4 h-4" />,
+    link: "/quests/bookworm-badges",
+  },
 ];
