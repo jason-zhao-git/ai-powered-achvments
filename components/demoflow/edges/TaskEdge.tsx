@@ -14,10 +14,9 @@ const TaskEdge = ({
   targetPosition,
   style = {},
   markerEnd,
-  animated,
 }: EdgeProps) => {
   const { getNode } = useReactFlow();
-  
+
   const sourceNode = getNode(source);
   const targetNode = getNode(target);
 
@@ -37,17 +36,18 @@ const TaskEdge = ({
     completedSource && completedTarget
       ? { stroke: 'lightgrey', strokeWidth: '3px', filter: 'brightness(1.5)' }
       : completedSource && !completedTarget
-      ? { stroke: 'lightgrey', strokeWidth: '2px', animation: 'dash 5s linear infinite' }
-      : { stroke: 'lightgrey', strokeWidth: '2.5px' };
+      ? { stroke: 'lightgrey', strokeWidth: '2px' }
+      : { stroke: 'lightgrey', strokeWidth: '0.5px' };
 
   return (
     <>
       <path
         id={id}
         style={{ ...style, ...edgeStyle }}
-        className={`react-flow__edge-path ${animated ? 'animated' : ''}`}
+        className={`react-flow__edge-path ${completedSource && !completedTarget ? 'animated' : ''}`}
         d={edgePath}
         markerEnd={markerEnd}
+
       />
     </>
   );

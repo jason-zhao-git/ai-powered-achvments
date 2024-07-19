@@ -126,21 +126,21 @@ export const questItems = [
   {
     name: "Code Crusader",
     icon: <CodeXml className="w-4 h-4" />,
-    link: "/quests/code-crusader",
+    link: "/demo/quests/code-crusader",
   },
   {
     name: "Voice Virtuoso",
     icon: <Music className="w-4 h-4" />,
-    link: "/quests/voice-virtuoso",
+    link: "/demo/quests/voice-virtuoso",
   },
   {
     name: "Fit Friends Frenzy",
     icon: <Dumbbell className="w-4 h-4" />,
-    link: "/quests/fit-friends-frenzy",
+    link: "/demo/quests/fit-friends-frenzy",
   },
   {
     name: "Bookworm Badges",
     icon: <BookOpen className="w-4 h-4" />,
-    link: "/quests/bookworm-badges",
+    link: "/demo/quests/bookworm-badges",
   },
 ];

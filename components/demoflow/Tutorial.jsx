@@ -56,7 +56,7 @@ function FlowComponent() {
 
   const onConnect = useCallback(
     (connection) => {
-      const edge = { ...connection, type: "task" };
+      const edge = { ...connection, type: "task"};
       setEdges((eds) => addEdge(edge, eds));
     },
     [setEdges]
