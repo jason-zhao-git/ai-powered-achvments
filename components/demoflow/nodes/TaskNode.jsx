@@ -111,8 +111,10 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               type={nodeData.connections.up}
               position={Position.Top}
               id={`${id}-up`}
-              className="z-20 !bg-transparent !border-0 handle"
+              className="z-20 !bg-transparent !border-0 handle -mt-1"
               isConnectable={isConnectable}
+              width={20}
+              height= {20}
             />
             <div className="absolute top-0 left-1/2 -mt-2 transform -translate-x-1/2 z-10">
               <Image
@@ -135,8 +137,10 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               type={nodeData.connections.down}
               position={Position.Bottom}
               id={`${id}-down`}
-              className="z-20 !bg-transparent !border-0 handle"
+              className="z-20 !bg-transparent !border-0 handle -mb-1"
               isConnectable={isConnectable}
+              width={20}
+              height= {20}
             />
             <div className="absolute bottom-0 left-1/2 -mb-2 transform -translate-x-1/2 z-10">
               <Image
@@ -161,6 +165,8 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               id={`${id}-left`}
               className="z-20 -mt-0.5 -ml-1 !bg-transparent !border-0"
               isConnectable={isConnectable}
+              width={20}
+              height= {20}
             />
             <div className="absolute left-0 top-1/2 -ml-2 -mt-0.5 transform -translate-y-1/2 z-10">
               <Image
@@ -185,6 +191,8 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               id={`${id}-right`}
               className="z-20 -mt-0.5 -mr-1 !bg-transparent !border-0"
               isConnectable={isConnectable}
+              width={20}
+              height= {20}
             />
             <div className="absolute right-0 top-1/2 -mr-2 -mt-0.5 transform -translate-y-1/2 z-10">
               <Image
