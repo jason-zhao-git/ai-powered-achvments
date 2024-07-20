@@ -1,7 +1,6 @@
-// TaskNode.jsx
 "use client";
-import React, { memo, useState } from "react";
-import { Handle, Position, NodeProps } from "@xyflow/react";
+import React, { memo, useState, useEffect } from "react";
+import { Handle, Position } from "@xyflow/react";
 import Image from "next/image";
 import "../../css/nodes.css";
 import {
@@ -14,7 +13,7 @@ import TriangleDownIcon from "/public/Icons/Nodes/triangle-down.svg";
 import TriangleLeftIcon from "/public/Icons/Nodes/triangle-left.svg";
 import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg";
 import TaskDialog from "../AddNode/TaskDialog.jsx"; // Import the dialog component
-import { useReactFlow } from "@xyflow/react";
+import { useReactFlow, NodeResizeControl } from "@xyflow/react";
 
 const TaskNode = ({ id, data, isConnectable, dragging }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,6 +21,15 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [nodeData, setNodeData] = useState(data);
   const { getNode, updateNodeData } = useReactFlow();
+  const [size, setSize] = useState(30); // Set the initial size to 30
+
+  useEffect(() => {
+    const node = getNode(id);
+    if (node) {
+      const width = node.width || 40;
+      setSize(width);
+    }
+  }, [getNode, id]);
 
   const handleSave = (updatedData) => {
     const existingNode = getNode(id);
@@ -52,27 +60,57 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
     setDialogOpen(!dialogOpen);
   };
 
+  const borderWidth = Math.max(3, size / 20);
+  const fontSize = Math.max(12, size / 5);
+
   return (
-    <>
-      <div onContextMenu={handleContextMenu}>
+    <div className="relative w-full h-full">
+      {dialogOpen && (
+        <NodeResizeControl
+          className="z-50 bg-transparent border-0 absolute right-0 bottom-0"
+          minWidth={30}
+          maxWidth={200}
+          minHeight={30}
+          maxHeight={200}
+          keepAspectRatio
+          onResize={(_, { width }) => setSize(width)}
+        >
+          <ResizeIcon />
+        </NodeResizeControl>
+      )}
+      <div onContextMenu={handleContextMenu} className="h-full w-full">
         <Popover>
           <PopoverTrigger asChild>
             <div
-              className={`relative flex items-center justify-center   shadow-lg group !transition-all !duration-500 ${
+              className={`relative flex items-center justify-center h-full w-full shadow-lg group !transition-all !duration-500 ${
                 isHovered ? "hover-effect" : ""
-              } ${nodeData.isCompleted ? " border-yellow-500 border-double border-4 shadow-[0_0_10px_2px_rgba(255,215,0,0.6)]" : "border-gray-500 rounded-sm border-[3px]"}`}
+              } ${
+                nodeData.isCompleted
+                  ? `border-yellow-500 border-double shadow-[0_0_10px_2px_rgba(255,215,0,0.6)]`
+                  : "border-gray-500 rounded-sm"
+              }`}
+              style={{ borderWidth: `${borderWidth}px` }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <Image
                 src={nodeData.imageSrc || "/icons/google.svg"}
                 alt={nodeData.alt || "Task Image"}
-                width={35}
-                height={35}
-                className={`bg-gray-100/90 p-0.5 ${nodeData.isCompleted ? "rounded-lg border-yellow-500 border" : "rounded-sm border-gray-500"}`}
+              
+                objectFit="contain"
+                width={size} 
+                height={size} // Set default size to be responsive
+                className={`bg-gray-100/90 p-0.5 ${
+                  nodeData.isCompleted
+                    ? "rounded-lg border-yellow-500 border"
+                    : "rounded-sm border-gray-500"
+                }`}
               />
               {isHovered && !dragging && !popoverOpen && (
-                <span className="custom-node-title absolute z-50 -mr-48 font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-1">
+                <span
+                  className="custom-node-title absolute z-50 font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-1"
+                  style={{ fontSize: `${fontSize}px` }}
+                >
                   {nodeData.name}
                 </span>
               )}
@@ -114,7 +152,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               className="z-20 !bg-transparent !border-0 handle -mt-1"
               isConnectable={isConnectable}
               width={20}
-              height= {20}
+              height={20}
             />
             <div className="absolute top-0 left-1/2 -mt-2 transform -translate-x-1/2 z-10">
               <Image
@@ -140,7 +178,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               className="z-20 !bg-transparent !border-0 handle -mb-1"
               isConnectable={isConnectable}
               width={20}
-              height= {20}
+              height={20}
             />
             <div className="absolute bottom-0 left-1/2 -mb-2 transform -translate-x-1/2 z-10">
               <Image
@@ -166,7 +204,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               className="z-20 -mt-0.5 -ml-1 !bg-transparent !border-0"
               isConnectable={isConnectable}
               width={20}
-              height= {20}
+              height={20}
             />
             <div className="absolute left-0 top-1/2 -ml-2 -mt-0.5 transform -translate-y-1/2 z-10">
               <Image
@@ -192,7 +230,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               className="z-20 -mt-0.5 -mr-1 !bg-transparent !border-0"
               isConnectable={isConnectable}
               width={20}
-              height= {20}
+              height={20}
             />
             <div className="absolute right-0 top-1/2 -mr-2 -mt-0.5 transform -translate-y-1/2 z-10">
               <Image
@@ -209,16 +247,36 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
           </>
         )}
         {dialogOpen && (
-          <div
-            className="absolute ml-5 -mt-4 z-50"
-            style={{ transform: "translate(100%, 0)" }}
-          >
+          <div className="absolute -ml-1 -mt-4 z-20">
             <TaskDialog nodeData={nodeData} onSave={handleSave} />
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
+
+function ResizeIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="#ff0071"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ position: "absolute", right: 5, bottom: 5 }}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <polyline points="16 20 20 20 20 16" />
+      <line x1="14" y1="14" x2="20" y2="20" />
+      <polyline points="8 4 4 4 4 8" />
+      <line x1="4" y1="4" x2="10" y2="10" />
+    </svg>
+  );
+}
 
 export default memo(TaskNode);

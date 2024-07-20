@@ -24,6 +24,7 @@
     "clsx": "^2.1.1",
     "convex": "^1.13.0",
     "convex-helpers": "^0.1.45",
+    "dagre": "^0.8.5",
     "elkjs": "^0.9.3",
     "jose": "^5.6.3",
     "lucide-react": "^0.400.0",

@@ -50,7 +50,7 @@ function FlowComponent() {
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
-  const { setViewport, getNodes, getEdges, getNode, getViewport } = useReactFlow();
+  const { setViewport, getNodes, getEdges, getNode, fitView } = useReactFlow();
   
 
   const flowKey = "tutorial";
@@ -182,6 +182,23 @@ function FlowComponent() {
     [getNodes, getEdges]
   );
 
+  const onSearch = useCallback(
+    (searchTerm) => {
+      const nodes = getNodes();
+      const node = nodes.find((node) => node.data.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
+      if (node) {
+        fitView({
+          nodes: [{ id: node.id }],
+          padding: 0.1, // Adjust padding as needed
+          duration: 1000, // Adjust duration as needed
+          minZoom: 0.5,
+          maxZoom: 2,
+        });
+      }
+    },
+    [getNodes, setViewport]
+  );
   
   return (
     <div className="h-full">
@@ -213,7 +230,7 @@ function FlowComponent() {
             </div>
           </Alert>
         )}
-        <CustomControls onAddNode={() => setIsModalOpen(true)} />
+        <CustomControls onAddNode={() => setIsModalOpen(true)} onSearch={onSearch}/>
         <Background />
         <MiniMap nodeStrokeWidth={3} zoomable pannable nodeColor={nodeColor} />
       </ReactFlow>

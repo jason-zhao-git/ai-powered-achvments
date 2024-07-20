@@ -38,10 +38,6 @@
   }
 }
 
-.custom-node-title {
-  font-size: 0.6rem !important;
-}
-
 .hover-effect:hover .custom-node-title {
   left: 130%; /* Adjusted to move slightly to the right */
   opacity: 1;

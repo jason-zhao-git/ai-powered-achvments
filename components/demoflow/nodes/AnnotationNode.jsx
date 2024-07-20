@@ -32,15 +32,17 @@ function AnnotationNode({ id, data, isConnectable, dragging }) {
 
   return (
     <div className="relative w-full h-full">
-      <NodeResizeControl
-        className="z-50 bg-transparent border-0 absolute right-0 bottom-0"
-        minWidth={100}
-        maxWidth={500}
-        minHeight={100}
-        maxHeight={500}
-      >
-        <ResizeIcon />
-      </NodeResizeControl>
+      {dialogOpen && (
+        <NodeResizeControl
+          className="z-50 bg-transparent border-0 absolute right-0 bottom-0"
+          minWidth={100}
+          maxWidth={500}
+          minHeight={100}
+          maxHeight={500}
+        >
+          <ResizeIcon />
+        </NodeResizeControl>
+      )}
       <ScrollArea
         onContextMenu={handleContextMenu}
         className="nowheel p-2 flex flex-col border-double border-gray-500 border-4 text-sm w-full h-full overflow-y-auto"
@@ -63,12 +65,12 @@ function AnnotationNode({ id, data, isConnectable, dragging }) {
                       "translate(5px, 25px) scale(1, -1) rotate(100deg)",
                   }
                 : nodeData.arrowStyle === "right"
-                ? {
-                    right: 0,
-                    bottom: 0,
-                    transform: "translate(-30px,10px) rotate(-80deg)",
-                  }
-                : {}
+                  ? {
+                      right: 0,
+                      bottom: 0,
+                      transform: "translate(-30px,10px) rotate(-80deg)",
+                    }
+                  : {}
             }
           >
             ⤹
