@@ -23,4 +23,15 @@ const taskNodeSchema = {
   position: { x: 250, y: 25 }, // Position of the node on the canvas
 };
 
+The Annotation Node:
 
+{
+    id: 'annotation-2',
+    type: 'annotation',
+    data: {
+      name: 'Sub flows, toolbars and resizable nodes!',
+      description: 'sth sth sth'
+      arrowStyle: "left" or "right"
+    },
+    position: { x: 220, y: 200 },
+  },

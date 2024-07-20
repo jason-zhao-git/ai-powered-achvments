@@ -100,7 +100,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
               <h3 className="text-md font-semibold font-pixel text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-3 mt-2">
                 {nodeData.name}
               </h3>
-              <p className="min-w-40">{nodeData.description}</p>
+              <p className="min-w-40 mt-3">{nodeData.description}</p>
             </div>
           </PopoverContent>
         </Popover>

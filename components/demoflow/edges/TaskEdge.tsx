@@ -34,7 +34,7 @@ const TaskEdge = ({
 
   const edgeStyle =
     completedSource && completedTarget
-      ? { stroke: 'lightgrey', strokeWidth: '3px', filter: 'brightness(1.5)' }
+      ? { stroke: 'grey', strokeWidth: '3px', filter: 'brightness(1.5)' }
       : completedSource && !completedTarget
       ? { stroke: 'lightgrey', strokeWidth: '2px' }
       : { stroke: 'lightgrey', strokeWidth: '0.5px' };

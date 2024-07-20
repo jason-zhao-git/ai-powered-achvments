@@ -86,7 +86,7 @@ const Loginapp = () => {
             </form>
 
             <div className="mt-4 text-white text-opacity-75 -mb-4">
-              Powered by OpenAI
+              Powered by Gemini
             </div>
           </div>
         </Tilt>

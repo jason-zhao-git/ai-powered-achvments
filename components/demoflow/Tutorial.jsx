@@ -21,7 +21,7 @@ import defaultNodes from "./Nodes/index.jsx";
 import defaultEdges from "./Edges/index.jsx";
 
 import TaskNode from "./Nodes/TaskNode.jsx";
-import CustomNode from "./Nodes/CardNote.jsx";
+import AnnotationNode from "./Nodes/AnnotationNode.jsx";
 
 import TaskEdge from "./Edges/TaskEdge";
 
@@ -35,7 +35,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 // Define nodeTypes and edgeTypes outside the component to ensure they are always available
 const nodeTypes = {
   task: TaskNode,
-  custom: CustomNode,
+  annotation: AnnotationNode,
 };
 
 const edgeTypes = {
@@ -50,9 +50,12 @@ function FlowComponent() {
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
-  const { setViewport, getNodes, getEdges, getNode } = useReactFlow();
+  const { setViewport, getNodes, getEdges, getNode, getViewport } = useReactFlow();
+  
 
   const flowKey = "tutorial";
+
+  
 
   const onConnect = useCallback(
     (connection) => {
@@ -92,26 +95,44 @@ function FlowComponent() {
     onSave();
   }, [nodes, edges, onSave]);
 
-  const addNode = ({ name, nodeType, description, connections }) => {
-    const newNode = {
-      id: `${nodes.length + 1}`,
-      data: {
-        name: name,
-        description: description,
-        subtasks: [],
-        connections: {
-          up: connections.up === "none" ? null : connections.up,
-          down: connections.down === "none" ? null : connections.down,
-          left: connections.left === "none" ? null : connections.left,
-          right: connections.right === "none" ? null : connections.right,
+  const addNode = (data) => {
+    let newNode;
+    if (data.nodeType === "task") {
+      const { name, nodeType, description, connections} = data;
+      newNode = {
+        id: `${nodes.length + 1}`,
+        data: {
+          name: name,
+          description: description,
+          subtasks: [],
+          connections: {
+            up: connections.up === "none" ? null : connections.up,
+            down: connections.down === "none" ? null : connections.down,
+            left: connections.left === "none" ? null : connections.left,
+            right: connections.right === "none" ? null : connections.right,
+          },
+          isCompleted: false,
+          createdAt: new Date().toISOString(),
+          completedAt: null,
         },
-        isCompleted: false,
-        createdAt: new Date().toISOString(),
-        completedAt: null,
-      },
-      position: { x: Math.random() * 250, y: Math.random() * 250 },
-      type: nodeType,
-    };
+        position: { x: Math.random() * 100, y: Math.random() * 100 },
+        type: nodeType,
+      };
+    } else if (data.nodeType === "annotation") {
+      const { name, nodeType, description, arrowStyle } = data;
+      newNode = {
+        id: `${nodes.length + 1}`,
+        data: {
+          name: name,
+          description: description,
+          arrowStyle: arrowStyle,
+        },
+        position: { x: Math.random() * 100, y: Math.random() * 100 },
+        type: nodeType,
+      };
+    }
+
+    
 
     const nodeChange = {
       type: "add",
@@ -124,6 +145,8 @@ function FlowComponent() {
   const nodeColor = (node) => {
     if (node.type === "task") {
       return node.data.isCompleted ? "#FFD700" : "#1C1C1C";
+    } else if (node.type === "annotation") {
+      return "#D3D3D3"
     }
     return "#2E2E2E";
   };

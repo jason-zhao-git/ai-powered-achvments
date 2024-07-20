@@ -9,6 +9,7 @@ import {
   DialogHeader,
   DialogFooter,
 } from "@/components/ui/dialog";
+
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -28,6 +29,7 @@ import {
   BadgeAlert,
   ScrollText,
   FileImage,
+  ListTodo,
 } from "lucide-react"; // Add the icons
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
@@ -133,8 +135,10 @@ const TaskDialog = ({ nodeData, onSave }) => {
                   className="my-2 w-full h-20 text-sm text-gray-900 border rounded p-2 focus:outline-none"
                 />
                 <div className="mt-4">
-                  <Label className="flex items-start text-gray-900 font-bold">Update Avatar SVG</Label>
-                  
+                  <Label className="flex items-start text-gray-900 font-bold">
+                    Update Avatar SVG
+                  </Label>
+
                   <input
                     type="file"
                     accept=".svg"
@@ -142,14 +146,14 @@ const TaskDialog = ({ nodeData, onSave }) => {
                     className="mt-2 mb-1"
                   />
                   <div>
-                  <a
-                    href="https://www.svgrepo.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 mt-2 w-full"
-                  >
-                    Check out SVG resources on svgrepo.com
-                  </a>
+                    <a
+                      href="https://www.svgrepo.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 mt-2 w-full"
+                    >
+                      Check out SVG resources on svgrepo.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-1 mt-12 border-b-2 border-gray-100 pb-2 flex-wrap sm:justify-between lg:gap-0">
@@ -232,8 +236,8 @@ const TaskDialog = ({ nodeData, onSave }) => {
           <div className="flex flex-col gap-2 bg-gray-100 w-full p-4">
             <div className="grid gap-2 p-4 border-b-2 w-full">
               <Label className="flex items-start">Task Avatar:</Label>
-              <div className="flex items-center justify-start gap-2 pb-2">
-                <FileImage className="w-4 h-4 text-primary capitalize" />
+              <div className="flex items-start justify-start gap-2 pb-2">
+                <FileImage className="flex-shrink-0 w-4 h-4 text-primary capitalize mt-1" />
                 <Image
                   src={imageSrc || "/achvAIrm.png"}
                   alt={nodeData.alt || "Task Image"}
@@ -245,15 +249,15 @@ const TaskDialog = ({ nodeData, onSave }) => {
             </div>
             <div className="grid gap-2 p-4 border-b-2 w-full">
               <Label className="flex items-start">Task Name:</Label>
-              <div className="flex text-left items-center justify-start gap-2 pb-2">
-                <Hash className="w-4 h-4 text-primary capitalize" />
+              <div className="flex text-left items-start justify-start gap-2 pb-2">
+                <Hash className="flex-shrink-0 w-4 h-4 text-primary capitalize mt-1" />
                 {name}
               </div>
             </div>
             <div className="grid gap-2 p-4 border-b-2 w-full">
               <Label className="flex items-start">Description:</Label>
-              <div className="flex text-left items-center justify-start gap-2 pb-2">
-                <Tag className="w-4 h-4 text-primary capitalize" />
+              <div className="flex text-left items-start justify-start gap-2 pb-2">
+                <Tag className="flex-shrink-0 w-4 h-4 text-primary capitalize mt-1" />
                 {description}
               </div>
             </div>
@@ -301,20 +305,23 @@ const TaskDialog = ({ nodeData, onSave }) => {
               </div>
             </div>
             <div className="grid gap-2 p-4 border-b-2 w-full">
-              <Label className="flex items-start">Sub-tasks</Label>
-              {subtasks.length > 0 ? (
-                subtasks.map((subtask, index) => (
-                  <div
-                    key={index}
-                    className="flex text-left items-center justify-start gap-2"
-                  >
-                    {getSubtaskIcon(subtask.isComplete)}
-                    <p className="text-sm">{subtask.subtask}</p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm">None</p>
-              )}
+              <Label className="flex items-start">
+                <ListTodo className="flex-shrink-0 w-4 h-4 text-primary capitalize mr-1 -mt-0.5" />
+                Sub-tasks
+              </Label>
+                {subtasks.length > 0 ? (
+                  subtasks.map((subtask, index) => (
+                    <div
+                      key={index}
+                      className="flex text-left items-center justify-start gap-2 w-full"
+                    >
+                      {getSubtaskIcon(subtask.isComplete)}
+                      <p className="text-sm">{subtask.subtask}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm">None</p>
+                )}
             </div>
           </div>
         </ScrollArea>

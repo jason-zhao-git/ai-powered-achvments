@@ -22,7 +22,9 @@ import { Button } from "@/components/ui/button";
 const SelectGrid = ({ connections, setConnections }) => (
   <div className="grid grid-cols-2 gap-4 mt-4">
     <div>
-      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Up Socket</p></FormLabel>
+      <FormLabel className="text-white/80">
+        <p className="font-pixel mt-4 mb-2">Up Socket</p>
+      </FormLabel>
       <Select
         defaultValue={connections.up}
         onValueChange={(value) =>
@@ -30,8 +32,7 @@ const SelectGrid = ({ connections, setConnections }) => (
         }
       >
         <SelectTrigger>
-          <SelectValue placeholder="Select Socket Type">
-          </SelectValue>
+          <SelectValue placeholder="Select Socket Type" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -43,7 +44,9 @@ const SelectGrid = ({ connections, setConnections }) => (
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Down Socket:</p></FormLabel>
+      <FormLabel className="text-white/80">
+        <p className="font-pixel mt-4 mb-2">Down Socket:</p>
+      </FormLabel>
       <Select
         defaultValue={connections.down}
         onValueChange={(value) =>
@@ -51,20 +54,21 @@ const SelectGrid = ({ connections, setConnections }) => (
         }
       >
         <SelectTrigger>
-          <SelectValue placeholder="Select Socket Type">
-          </SelectValue>
+          <SelectValue placeholder="Select Socket Type" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectItem value="none">None</SelectItem>
-            <SelectItem value="src">Source</SelectItem>
+            <SelectItem value="source">Source</SelectItem>
             <SelectItem value="target">Target</SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Left Socket:</p></FormLabel>
+      <FormLabel className="text-white/80">
+        <p className="font-pixel mt-4 mb-2">Left Socket:</p>
+      </FormLabel>
       <Select
         defaultValue={connections.left}
         onValueChange={(value) =>
@@ -72,20 +76,21 @@ const SelectGrid = ({ connections, setConnections }) => (
         }
       >
         <SelectTrigger>
-          <SelectValue placeholder="Select Socket Type">
-          </SelectValue>
+          <SelectValue placeholder="Select Socket Type" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectItem value="none">None</SelectItem>
-            <SelectItem value="src">Source</SelectItem>
+            <SelectItem value="source">Source</SelectItem>
             <SelectItem value="target">Target</SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80"><p className="font-pixel mt-4 mb-2">Right Socket:</p></FormLabel>
+      <FormLabel className="text-white/80">
+        <p className="font-pixel mt-4 mb-2">Right Socket:</p>
+      </FormLabel>
       <Select
         defaultValue={connections.right}
         onValueChange={(value) =>
@@ -93,13 +98,12 @@ const SelectGrid = ({ connections, setConnections }) => (
         }
       >
         <SelectTrigger>
-          <SelectValue placeholder="Select Socket Type">
-          </SelectValue>
+          <SelectValue placeholder="Select Socket Type" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectItem value="none">None</SelectItem>
-            <SelectItem value="src">Source</SelectItem>
+            <SelectItem value="source">Source</SelectItem>
             <SelectItem value="target">Target</SelectItem>
           </SelectGroup>
         </SelectContent>
@@ -116,12 +120,14 @@ const AddNodeForm = ({ form, handleSubmit }) => {
     left: "none",
     right: "none",
   });
+  const [arrowStyle, setArrowStyle] = useState("none");
 
   const onSubmit = (data) => {
     const formData = {
       ...data,
       nodeType,
-      connections,
+      connections: nodeType === "task" ? connections : undefined,
+      arrowStyle: nodeType === "annotation" ? arrowStyle : undefined,
     };
     console.log(JSON.stringify(formData, null, 2));
     handleSubmit(formData);
@@ -130,27 +136,52 @@ const AddNodeForm = ({ form, handleSubmit }) => {
   return (
     <Form {...form}>
       <span>
-        <FormLabel className="text-white/80"> <p className="font-pixel mt-5 mb-2">Node Type:</p></FormLabel>
+        <FormLabel className="text-white/80">
+          {" "}
+          <p className="font-pixel mt-5 mb-2">Node Type:</p>
+        </FormLabel>
         <Select
           defaultValue={nodeType}
           onValueChange={(value) => setNodeType(value)}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select Node Type">
-            </SelectValue>
+            <SelectValue placeholder="Select Node Type" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectItem value="task">Task</SelectItem>
-              <SelectItem value="custom">Custom</SelectItem>
+              <SelectItem value="annotation">Annotation</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </span>
-      <SelectGrid
-        connections={connections}
-        setConnections={setConnections}
-      />
+
+      {nodeType === "task" ? (
+        <SelectGrid connections={connections} setConnections={setConnections} />
+      ) : (
+        <div>
+          <FormLabel className="text-white/80">
+            <p className="font-pixel mt-4 mb-2">Arrow Style:</p>
+          </FormLabel>
+          <Select
+            defaultValue={arrowStyle}
+            onValueChange={(value) => setArrowStyle(value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select Arrow Style" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+
+                <SelectItem value="left">Left</SelectItem>
+                <SelectItem value="right">Right</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      )}
+
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-4 text-white/80 mt-2"
@@ -160,7 +191,9 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white/80"><p className="font-pixel mt-5 mb-2">Name:</p></FormLabel>
+              <FormLabel className="text-white/80">
+                <p className="font-pixel mt-5 mb-2">Name:</p>
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Enter Name"
@@ -177,7 +210,9 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white/80"><p className="font-pixel mt-5 mb-2">Description:</p></FormLabel>
+              <FormLabel className="text-white/80">
+                <p className="font-pixel mt-5 mb-2">Description:</p>
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Enter Description"
@@ -189,13 +224,10 @@ const AddNodeForm = ({ form, handleSubmit }) => {
             </FormItem>
           )}
         />
-
-        
         <Button type="submit" className="w-full bg-blue-500 text-white">
           Add Node
         </Button>
       </form>
-      
     </Form>
   );
 };
