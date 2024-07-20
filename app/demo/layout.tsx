@@ -15,11 +15,11 @@ export default async function LoggedInLayout({
   return (
     <ConvexClientProvider session={null}>
       <div className="fixed top-1/4 md:left-1/15 z-50 flex flex-col justify-between items-start">
-        <div className="flex flex-row items-start space-y-1 lg:space-y-0 lg:space-x-4">
-          <div className="mb-3">
+        
+          <div className="flex mb-3">
             <SearchandMobile />
           </div>
-        </div>
+        
         <div className="hidden sm:block">
           <SideBar primaryNavItems={demoNavItems} questItems={questItems} />
         </div>

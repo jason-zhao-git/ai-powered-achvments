@@ -19,7 +19,7 @@ export default async function LoggedInLayout({
               <div className="mb-3">
                 <SearchandMobile />
               </div>
-              <SideBar primaryNavItems={primaryNavItems} />
+              <SideBar primaryNavItems={primaryNavItems} questItems={[]}/>
             </div>
           </div>
           <main className="flex-1">
