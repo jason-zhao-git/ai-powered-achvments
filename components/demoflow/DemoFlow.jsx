@@ -22,19 +22,23 @@ import defaultEdges from "./Edges/index.jsx";
 
 import TaskNode from "./Nodes/TaskNode.jsx";
 import AnnotationNode from "./Nodes/AnnotationNode.jsx";
+import NarratorNode from "./Nodes/NarratorNode.jsx"
 
-import TaskEdge from "./Edges/TaskEdge";
+import TaskEdge from "./Edges/TaskEdge.tsx";
 
-import AddNodeModal from "./AddNode/AddNodeModal";
+import AddNodeModal from "./AddNode/AddNodeModal.tsx";
 import CustomControls from "./CustomControls.jsx";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { mainNodes } from "./Nodes/index.jsx";
+import { mainEdges } from "./Edges/index.jsx";
 
 const nodeTypes = {
   task: TaskNode,
   annotation: AnnotationNode,
+  narrator: NarratorNode
 };
 
 const edgeTypes = {
@@ -42,17 +46,30 @@ const edgeTypes = {
   default: "smoothstep",
 };
 
-function FlowComponent() {
+function FlowComponent({flowKey}) {
+  let defaultNodes = [];
+  let defaultEdges = [];
+
+  switch (flowKey) {
+    case "main":
+      defaultNodes = mainNodes;
+      defaultEdges = mainEdges;
+      break;
+    default:
+      defaultNodes = defaultNodes;
+      defaultEdges = defaultEdges;
+      break;
+  }
+
   const [nodes, setNodes, onNodesChange] = useNodesState(defaultNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(defaultEdges);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
   const { setViewport, getNodes, getEdges, getViewport, fitView } =
     useReactFlow();
-
-  const flowKey = "tutorial";
 
   const onConnect = useCallback(
     (connection) => {
@@ -287,10 +304,10 @@ function FlowComponent() {
   );
 }
 
-function DemoFlow() {
+function DemoFlow({flowKey}) {
   return (
     <ReactFlowProvider>
-      <FlowComponent />
+      <FlowComponent flowKey={flowKey}/>
     </ReactFlowProvider>
   );
 }

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { signInAction } from "@/serveractions/auth-action";
 import Image from "next/image";
 import UserProfile from "@/components/navbar/UserProfile";
-import Tasks from "@/components/achvmain/Tasks";
+
 import SideBar from "@/components/navbar/SideBar";
 import SearchandMobile from "@/components/navbar/SearchandMobile";
 
