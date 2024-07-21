@@ -28,11 +28,10 @@ import TaskEdge from "./Edges/TaskEdge";
 import AddNodeModal from "./AddNode/AddNodeModal";
 import CustomControls from "./CustomControls.jsx";
 
-import { Terminal } from "lucide-react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-// Define nodeTypes and edgeTypes outside the component to ensure they are always available
 const nodeTypes = {
   task: TaskNode,
   annotation: AnnotationNode,
@@ -40,7 +39,7 @@ const nodeTypes = {
 
 const edgeTypes = {
   task: TaskEdge,
-  default: "smoothstep", // Ensure default type is also specified
+  default: "smoothstep",
 };
 
 function FlowComponent() {
@@ -50,16 +49,14 @@ function FlowComponent() {
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
-  const { setViewport, getNodes, getEdges, getNode, fitView } = useReactFlow();
-  
+  const { setViewport, getNodes, getEdges, getViewport, fitView } =
+    useReactFlow();
 
   const flowKey = "tutorial";
 
-  
-
   const onConnect = useCallback(
     (connection) => {
-      const edge = { ...connection, type: "task"};
+      const edge = { ...connection, type: "task" };
       setEdges((eds) => addEdge(edge, eds));
     },
     [setEdges]
@@ -81,6 +78,8 @@ function FlowComponent() {
         setNodes(flow.nodes || []);
         setEdges(flow.edges || []);
         setViewport({ x, y, zoom });
+      } else {
+        console.error('No flow data found in local storage');
       }
     };
 
@@ -98,7 +97,7 @@ function FlowComponent() {
   const addNode = (data) => {
     let newNode;
     if (data.nodeType === "task") {
-      const { name, nodeType, description, connections} = data;
+      const { name, nodeType, description, connections } = data;
       newNode = {
         id: `${nodes.length + 1}`,
         data: {
@@ -132,8 +131,6 @@ function FlowComponent() {
       };
     }
 
-    
-
     const nodeChange = {
       type: "add",
       item: newNode,
@@ -146,7 +143,7 @@ function FlowComponent() {
     if (node.type === "task") {
       return node.data.isCompleted ? "#FFD700" : "#1C1C1C";
     } else if (node.type === "annotation") {
-      return "#D3D3D3"
+      return "#D3D3D3";
     }
     return "#2E2E2E";
   };
@@ -168,16 +165,16 @@ function FlowComponent() {
       };
 
       if (target.id === connection.source) return false;
-      const cycleDetected = hasCycle(target);
-      setCycleDetected(cycleDetected);
+      const iscycleDetected = hasCycle(target);
+      setCycleDetected(iscycleDetected);
 
-      if (cycleDetected) {
+      if (iscycleDetected) {
         setTimeout(() => {
           setCycleDetected(false);
         }, 3000);
       }
 
-      return !cycleDetected;
+      return !iscycleDetected;
     },
     [getNodes, getEdges]
   );
@@ -185,7 +182,9 @@ function FlowComponent() {
   const onSearch = useCallback(
     (searchTerm) => {
       const nodes = getNodes();
-      const node = nodes.find((node) => node.data.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      const node = nodes.find((node) =>
+        node.data.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
 
       if (node) {
         fitView({
@@ -195,13 +194,70 @@ function FlowComponent() {
           minZoom: 0.5,
           maxZoom: 2,
         });
+        toast.success(<div>Node "{node.data.name}" found!</div>, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          className: "toast-success",
+        });
+      } else {
+        toast.error(<div>Node "{searchTerm}" not found!</div>, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          className: "toast-error",
+        });
       }
     },
-    [getNodes, setViewport]
+    [getNodes, fitView]
   );
-  
+
+  useEffect(() => {
+    if (cycleDetected) {
+      toast.warn(
+        <div>
+          <span className="font-semibold">Warning:</span> Your edge will create
+          a cycle deadlock!
+        </div>,
+        {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          className: "toast-warning"
+        }
+      );
+    }
+  }, [cycleDetected]);
+
   return (
     <div className="h-full">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <AddNodeModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -220,17 +276,10 @@ function FlowComponent() {
         isValidConnection={isValidConnection}
         fitView
       >
-        {cycleDetected && (
-          <Alert className="bg-transparent !border-0 text-red-600 text-lg !flex !justify-center">
-            <div className="mt-16 p-4 -mr-3 font-semibold font-pixel">
-              <Terminal className="h-4 w-4 mb-2" />
-              <AlertDescription>
-                Your edge will create a cycle deadlock.
-              </AlertDescription>
-            </div>
-          </Alert>
-        )}
-        <CustomControls onAddNode={() => setIsModalOpen(true)} onSearch={onSearch}/>
+        <CustomControls
+          onAddNode={() => setIsModalOpen(true)}
+          onSearch={onSearch}
+        />
         <Background />
         <MiniMap nodeStrokeWidth={3} zoomable pannable nodeColor={nodeColor} />
       </ReactFlow>

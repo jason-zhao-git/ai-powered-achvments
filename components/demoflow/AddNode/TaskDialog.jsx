@@ -33,6 +33,8 @@ import {
 } from "lucide-react"; // Add the icons
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskDialog = ({ nodeData, onSave }) => {
   const {
@@ -66,6 +68,36 @@ const TaskDialog = ({ nodeData, onSave }) => {
   };
 
   const handleToggleCompletion = () => {
+    if (!taskCompleted) {
+      toast(
+        <div className="flex items-center p-2 -mb-2 ">
+          <div className="flex-none w-6 h-6 mr-4 -mt-2">
+            <Image
+              src={taskImage || "/icons/google.svg"}
+              alt="Task Icon"
+              width={24}
+              height={24}
+            />
+          </div>
+          <div>
+            <div className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-2 font-semibold">Achievement Made!</div>
+            <strong className="block ml-1">{taskName}</strong>
+          </div>
+        </div>,
+        {
+          position: "top-right",
+          autoClose: 8000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          className:
+            "bg-gray-800 text-white font-pixel shadow-lg border-8 border-double border-yellow-500",
+        }
+      );
+    }
     setTaskCompleted(!taskCompleted);
   };
 
@@ -216,6 +248,7 @@ const TaskDialog = ({ nodeData, onSave }) => {
               </DialogDescription>
             </DialogHeader>
             <DialogFooter className="flex gap-2 p-4 w-full justify-end z-50">
+              <ToastContainer />
               <Button
                 variant={taskCompleted ? "success" : "secondary"}
                 onClick={handleToggleCompletion}
@@ -309,19 +342,19 @@ const TaskDialog = ({ nodeData, onSave }) => {
                 <ListTodo className="flex-shrink-0 w-4 h-4 text-primary capitalize mr-1 -mt-0.5" />
                 Sub-tasks
               </Label>
-                {subtasks.length > 0 ? (
-                  subtasks.map((subtask, index) => (
-                    <div
-                      key={index}
-                      className="flex text-left items-center justify-start gap-2 w-full"
-                    >
-                      {getSubtaskIcon(subtask.isComplete)}
-                      <p className="text-sm">{subtask.subtask}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-sm">None</p>
-                )}
+              {subtasks.length > 0 ? (
+                subtasks.map((subtask, index) => (
+                  <div
+                    key={index}
+                    className="flex text-left items-center justify-start gap-2 w-full"
+                  >
+                    {getSubtaskIcon(subtask.isComplete)}
+                    <p className="text-sm">{subtask.subtask}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm">None</p>
+              )}
             </div>
           </div>
         </ScrollArea>

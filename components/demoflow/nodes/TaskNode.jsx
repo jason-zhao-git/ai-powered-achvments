@@ -31,6 +31,8 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
     }
   }, [getNode, id]);
 
+  
+
   const handleSave = (updatedData) => {
     const existingNode = getNode(id);
     if (!existingNode) return;
@@ -44,6 +46,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
     };
 
     if (updatedData.isCompleted && !existingNode.data.isCompleted) {
+      
       updatedNodeData.completedAt = new Date().toISOString();
     }
     if (!updatedData.isCompleted && existingNode.data.isCompleted) {
