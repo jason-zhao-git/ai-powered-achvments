@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   Dialog,
   DialogTrigger,
@@ -35,8 +35,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useReactFlow } from "@xyflow/react";
 
-const TaskDialog = ({ nodeData, onSave }) => {
+const TaskDialog = ({  id ,nodeData, onSave }) => {
   const {
     name,
     description,
@@ -53,6 +54,31 @@ const TaskDialog = ({ nodeData, onSave }) => {
   const [taskCompleted, setTaskCompleted] = useState(isCompleted);
   const [taskSubtasks, setTaskSubtasks] = useState(subtasks);
   const [taskImage, setTaskImage] = useState(imageSrc);
+  const [canComplete, setCanComplete] = useState(false);
+  const { nodes, edges, getEdges, getNode, getNodes} = useReactFlow();
+
+  const findParentNodes = (nodeId) => {
+    const edges = getEdges();
+    const parentNodes = [];
+
+    edges.forEach(edge => {
+      if (edge.target === nodeId) {
+        const parentNode = getNode(edge.source);
+        if (parentNode) {
+          parentNodes.push(parentNode);
+        }
+      }
+    });
+    console.log(parentNodes);
+    return parentNodes;
+  };
+
+  const checkParentNodesCompletion = (parentNodes) => {
+    if (parentNodes.length === 0) return true;
+    return parentNodes.every((node) => node.data.isCompleted);
+  };
+
+
 
   const handleSave = () => {
     const filteredSubtasks = taskSubtasks.filter(
@@ -67,24 +93,12 @@ const TaskDialog = ({ nodeData, onSave }) => {
     });
   };
 
+
   const handleToggleCompletion = () => {
     if (!taskCompleted) {
-      toast(
-        <div className="flex items-center p-2 -mb-2 ">
-          <div className="flex-none w-6 h-6 mr-4 -mt-2">
-            <Image
-              src={taskImage || "/icons/google.svg"}
-              alt="Task Icon"
-              width={24}
-              height={24}
-            />
-          </div>
-          <div>
-            <div className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-2 font-semibold">Achievement Made!</div>
-            <strong className="block ml-1">{taskName}</strong>
-          </div>
-        </div>,
-        {
+      const parentNodes = findParentNodes(id)
+      if (!checkParentNodesCompletion(parentNodes)) {
+        toast.error("All parent tasks must be completed before completing this task.", {
           position: "top-right",
           autoClose: 8000,
           hideProgressBar: true,
@@ -93,12 +107,47 @@ const TaskDialog = ({ nodeData, onSave }) => {
           draggable: true,
           progress: undefined,
           theme: "dark",
-          className:
-            "bg-gray-800 text-white font-pixel shadow-lg border-8 border-double border-yellow-500",
-        }
-      );
+          className: "bg-red-800 text-white font-pixel shadow-lg border-8 border-double border-red-500",
+        });
+        setTaskCompleted(false);
+        return;
+      } else {
+        toast(
+          <div className="flex items-center p-2 -mb-2 ">
+            <div className="flex-none w-6 h-6 mr-4 -mt-2">
+              <Image
+                src={taskImage || "/icons/google.svg"}
+                alt="Task Icon"
+                width={24}
+                height={24}
+              />
+            </div>
+            <div>
+              <div className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-2 font-semibold">Achievement Made!</div>
+              <strong className="block ml-1">{taskName}</strong>
+            </div>
+          </div>,
+          {
+            position: "top-right",
+            autoClose: 8000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            className:
+              "bg-gray-800 text-white font-pixel shadow-lg border-8 border-double border-yellow-500",
+          }
+        );
+        setTaskCompleted(true);
+      }
+
+      
+    } else if (taskCompleted) {
+      setTaskCompleted(false);
     }
-    setTaskCompleted(!taskCompleted);
+    
   };
 
   const getConnectionIcon = (connection) => {
@@ -141,7 +190,7 @@ const TaskDialog = ({ nodeData, onSave }) => {
     };
     reader.readAsDataURL(file);
   };
-
+  
   return (
     <Dialog>
       <DialogTrigger asChild>

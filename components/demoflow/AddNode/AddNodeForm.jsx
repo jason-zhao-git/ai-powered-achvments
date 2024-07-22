@@ -224,7 +224,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full bg-blue-500 text-white">
+        <Button type="submit" className="w-full bg-blue-500 text-white text-lg">
           Add Node
         </Button>
       </form>

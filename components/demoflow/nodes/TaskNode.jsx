@@ -16,12 +16,15 @@ import TaskDialog from "../AddNode/TaskDialog.jsx"; // Import the dialog compone
 import { useReactFlow, NodeResizeControl } from "@xyflow/react";
 import ResizeIcon from "./ResizeIcon"
 
+
+
+
 const TaskNode = ({ id, data, isConnectable, dragging }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [nodeData, setNodeData] = useState(data);
-  const { getNode, updateNodeData } = useReactFlow();
+  const {nodes, edges, getEdges, getNode, getNodes, updateNodeData } = useReactFlow();
   const [size, setSize] = useState(30); // Set the initial size to 30
 
   useEffect(() => {
@@ -31,6 +34,8 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
       setSize(width);
     }
   }, [getNode, id]);
+
+  
 
   
 
@@ -252,7 +257,7 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
         )}
         {dialogOpen && (
           <div className="absolute -ml-1 -mt-4 z-20">
-            <TaskDialog nodeData={nodeData} onSave={handleSave} />
+            <TaskDialog id={id} nodeData={nodeData} onSave={handleSave} />
           </div>
         )}
       </div>
