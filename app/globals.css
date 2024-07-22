@@ -75,10 +75,18 @@
     }
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap');
+
+
   @font-face {
-    font-family: 'Minecraftia';
-    src: url('../public/fonts/Minecraftia-Regular.ttf') format('truetype');
+    font-family: 'Handjet';
+    src: url('../public/fonts/Handjet-VariableFont_ELGR,ELSH,wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-variation-settings:
+    "ELGR" 2,
+    "ELSH" 2;
+
   }
+  /* index.css or global.css */
   

@@ -76,7 +76,7 @@ function NarratorNode({ id, data, isConnectable, dragging }) {
           />
         </div>
 
-        <div className="mt-2 text-white/85 font-pixel text-lg !break-words whitespace-normal max-w-96">
+        <div className="mt-2 text-white/85 font-hj text-lg !break-words whitespace-normal max-w-96">
           <TypeAnimation
             sequence={[
               "Please check out the tutorial session!",
