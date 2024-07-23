@@ -20,10 +20,10 @@ import {
 import { Button } from "@/components/ui/button";
 
 const SelectGrid = ({ connections, setConnections }) => (
-  <div className="grid grid-cols-2 gap-4 mt-4 ">
+  <div className="grid grid-cols-2 gap-4 mt-4">
     <div>
       <FormLabel className="text-white/80">
-        <p className="font-pixel mt-4 mb-2 text-lg">Up Socket</p>
+        <p className="font-pixel mt-4 mb-2 ml-1">Up Socket</p>
       </FormLabel>
       <Select
         defaultValue={connections.up}
@@ -45,7 +45,7 @@ const SelectGrid = ({ connections, setConnections }) => (
     </div>
     <div>
       <FormLabel className="text-white/80">
-        <p className="font-pixel mt-4 mb-2 text-lg">Down Socket:</p>
+        <p className="font-pixel mt-4 mb-2">Down Socket:</p>
       </FormLabel>
       <Select
         defaultValue={connections.down}
@@ -67,7 +67,7 @@ const SelectGrid = ({ connections, setConnections }) => (
     </div>
     <div>
       <FormLabel className="text-white/80">
-        <p className="font-pixel mt-4 mb-2 text-lg">Left Socket:</p>
+        <p className="font-pixel mt-4 mb-2 ml-1">Left Socket:</p>
       </FormLabel>
       <Select
         defaultValue={connections.left}
@@ -88,7 +88,7 @@ const SelectGrid = ({ connections, setConnections }) => (
       </Select>
     </div>
     <div>
-      <FormLabel className="text-white/80 text-lg">
+      <FormLabel className="text-white/80">
         <p className="font-pixel mt-4 mb-2">Right Socket:</p>
       </FormLabel>
       <Select
@@ -135,10 +135,10 @@ const AddNodeForm = ({ form, handleSubmit }) => {
 
   return (
     <Form {...form}>
-      <span className="">
+      <span>
         <FormLabel className="text-white/80">
           {" "}
-          <p className="font-pixel mt-5 mb-2 text-lg">Node Type:</p>
+          <p className="font-pixel mt-5 mb-2 ml-1">Node Type:</p>
         </FormLabel>
         <Select
           defaultValue={nodeType}
@@ -161,7 +161,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
       ) : (
         <div>
           <FormLabel className="text-white/80">
-            <p className="font-pixel mt-4 mb-2 text-lg">Arrow Style:</p>
+            <p className="font-pixel mt-4 mb-2">Arrow Style:</p>
           </FormLabel>
           <Select
             defaultValue={arrowStyle}
@@ -192,7 +192,7 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-white/80">
-                <p className="font-pixel mt-5 mb-2 text-lg">Name:</p>
+                <p className="font-pixel mt-5 mb-2 ml-1">Name:</p>
               </FormLabel>
               <FormControl>
                 <Input
@@ -211,21 +211,21 @@ const AddNodeForm = ({ form, handleSubmit }) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-white/80">
-                <p className="font-pixel mt-5 mb-2 text-lg">Description:</p>
+                <p className="font-pixel mt-5 mb-2 ml-1">Description:</p>
               </FormLabel>
               <FormControl>
-                <Input
+                <textarea
                   placeholder="Enter Description"
                   {...field}
-                  className="text-black"
+                  className="text-black w-full h-40 p-1.5 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </FormControl>
               <FormMessage className="text-white/80" />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full bg-blue-500 text-white text-lg">
-          Add Node
+        <Button type="submit" className="w-full  bg-blue-500 text-white">
+          <span className="font-pixel mt-2">Add Node</span>
         </Button>
       </form>
     </Form>

@@ -22,7 +22,7 @@ import defaultEdges from "./Edges/index.jsx";
 
 import TaskNode from "./Nodes/TaskNode.jsx";
 import AnnotationNode from "./Nodes/AnnotationNode.jsx";
-import NarratorNode from "./Nodes/NarratorNode.jsx"
+import NarratorNode from "./Nodes/NarratorNode.jsx";
 
 import TaskEdge from "./Edges/TaskEdge.tsx";
 
@@ -32,13 +32,25 @@ import CustomControls from "./CustomControls.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { mainNodes } from "./Nodes/index.jsx";
-import { mainEdges } from "./Edges/index.jsx";
+import {
+  mainNodes,
+  tutorialNodes,
+  codeNodes,
+  vocalNodes,
+  fitnessNodes,
+} from "./Nodes/index.jsx";
+import {
+  mainEdges,
+  tutorialEdges,
+  codeEdges,
+  vocalEdges,
+  fitnessEdges,
+} from "./Edges/index.jsx";
 
 const nodeTypes = {
   task: TaskNode,
   annotation: AnnotationNode,
-  narrator: NarratorNode
+  narrator: NarratorNode,
 };
 
 const edgeTypes = {
@@ -46,7 +58,7 @@ const edgeTypes = {
   default: "smoothstep",
 };
 
-function FlowComponent({flowKey}) {
+function FlowComponent({ flowKey }) {
   let defaultNodes = [];
   let defaultEdges = [];
 
@@ -55,14 +67,41 @@ function FlowComponent({flowKey}) {
       defaultNodes = mainNodes;
       defaultEdges = mainEdges;
       break;
+    case "tutorial":
+      defaultNodes = tutorialNodes;
+      defaultEdges = tutorialEdges;
+      break;
+    case "code":
+      defaultNodes = codeNodes;
+      defaultEdges = codeEdges;
+      break;
+    case "vocal":
+      defaultNodes = vocalNodes;
+      defaultEdges = vocalEdges;
+      break;
+    case "fitness":
+      defaultNodes = fitnessNodes;
+      defaultEdges = fitnessEdges;
+      break;
+
     default:
       defaultNodes = defaultNodes;
       defaultEdges = defaultEdges;
       break;
   }
+  const initializeNodes = () => {
+    const flow = JSON.parse(localStorage.getItem(flowKey));
+    return flow ? flow.nodes : defaultNodes;
+  };
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(defaultNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(defaultEdges);
+  // Function to initialize edges from local storage or default
+  const initializeEdges = () => {
+    const flow = JSON.parse(localStorage.getItem(flowKey));
+    return flow ? flow.edges : defaultEdges;
+  };
+
+  const [nodes, setNodes, onNodesChange] = useNodesState(initializeNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initializeEdges);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rfInstance, setRfInstance] = useState(null);
@@ -96,7 +135,7 @@ function FlowComponent({flowKey}) {
         setEdges(flow.edges || []);
         setViewport({ x, y, zoom });
       } else {
-        console.error('No flow data found in local storage');
+        console.error("No flow data found in local storage");
       }
     };
 
@@ -184,6 +223,25 @@ function FlowComponent({flowKey}) {
       if (target.id === connection.source) return false;
       const iscycleDetected = hasCycle(target);
       setCycleDetected(iscycleDetected);
+      if (cycleDetected) {
+        toast.warn(
+          <div>
+            <span className="font-semibold">Warning:</span> Your edge will
+            create a cycle deadlock!
+          </div>,
+          {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            className: "toast-warning",
+          }
+        );
+      }
 
       if (iscycleDetected) {
         setTimeout(() => {
@@ -255,7 +313,7 @@ function FlowComponent({flowKey}) {
           draggable: true,
           progress: undefined,
           theme: "dark",
-          className: "toast-warning"
+          className: "toast-warning",
         }
       );
     }
@@ -304,10 +362,10 @@ function FlowComponent({flowKey}) {
   );
 }
 
-function DemoFlow({flowKey}) {
+function DemoFlow({ flowKey }) {
   return (
     <ReactFlowProvider>
-      <FlowComponent flowKey={flowKey}/>
+      <FlowComponent flowKey={flowKey} />
     </ReactFlowProvider>
   );
 }

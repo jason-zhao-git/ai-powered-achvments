@@ -38,8 +38,8 @@ const config = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        pixel: ['Handjet', "sans-serif"],
-        hj: ['Handjet']
+        pixel: ["Minecraftia", 'Handjet', "sans-serif"],
+        hj: ['Handjet', "Minecraftia", "sans-serif"],
       },
       boxShadow: {
         "5xl": "40px 40px 50px rgba(0, 0, 0, 0.5)",

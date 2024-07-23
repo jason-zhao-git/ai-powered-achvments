@@ -54,8 +54,7 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
   const [taskCompleted, setTaskCompleted] = useState(isCompleted);
   const [taskSubtasks, setTaskSubtasks] = useState(subtasks);
   const [taskImage, setTaskImage] = useState(imageSrc);
-  const [canComplete, setCanComplete] = useState(false);
-  const { nodes, edges, getEdges, getNode, getNodes} = useReactFlow();
+  const { getEdges, getNode, getNodes} = useReactFlow();
 
   const findParentNodes = (nodeId) => {
     const edges = getEdges();
@@ -69,7 +68,7 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
         }
       }
     });
-    console.log(parentNodes);
+
     return parentNodes;
   };
 
@@ -112,19 +111,21 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
         setTaskCompleted(false);
         return;
       } else {
+        setTaskCompleted(true);
         toast(
           <div className="flex items-center p-2 -mb-2 ">
-            <div className="flex-none w-6 h-6 mr-4 -mt-2">
+            <div className="flex-none w-10 h-10 mr-4 -mt-2">
               <Image
                 src={taskImage || "/icons/google.svg"}
                 alt="Task Icon"
-                width={24}
-                height={24}
+                width={80}
+                height={80}
+                className="rounded-lg bg-white/90 p-1"
               />
             </div>
             <div>
               <div className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 p-2 -mb-2 font-semibold">Achievement Made!</div>
-              <strong className="block ml-1">{taskName}</strong>
+              <strong className="block ml-2">{taskName}</strong>
             </div>
           </div>,
           {
@@ -140,10 +141,8 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
               "bg-gray-800 text-white font-pixel shadow-lg border-8 border-double border-yellow-500",
           }
         );
-        setTaskCompleted(true);
+        
       }
-
-      
     } else if (taskCompleted) {
       setTaskCompleted(false);
     }

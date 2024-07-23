@@ -8,7 +8,7 @@ import {
   Code,
   Music,
   Dumbbell,
-  BookOpen,
+  PencilRuler,
   CodeXml,
 } from "lucide-react";
 
@@ -124,23 +124,23 @@ export const demoNavItems = [
 
 export const questItems = [
   {
-    name: "Code Crusader",
+    name: "To Be A Programmer",
     icon: <CodeXml className="w-4 h-4" />,
-    link: "/demo/quests/code-crusader",
+    link: "/demo/quests/to-be-a-coder",
   },
   {
-    name: "Voice Virtuoso",
+    name: "Vocal War Crimes",
     icon: <Music className="w-4 h-4" />,
-    link: "/demo/quests/voice-virtuoso",
+    link: "/demo/quests/voice",
   },
   {
-    name: "Fit Friends Frenzy",
+    name: "Need Them Gains",
     icon: <Dumbbell className="w-4 h-4" />,
-    link: "/demo/quests/fit-friends-frenzy",
+    link: "/demo/quests/fitness",
   },
   {
-    name: "Bookworm Badges",
-    icon: <BookOpen className="w-4 h-4" />,
-    link: "/demo/quests/bookworm-badges",
+    name: "Playground",
+    icon: <PencilRuler className="w-4 h-4" />,
+    link: "/demo/quests/playground",
   },
 ];
