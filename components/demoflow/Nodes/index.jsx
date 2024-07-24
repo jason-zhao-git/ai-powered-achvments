@@ -1716,485 +1716,488 @@ export const vocalNodes = [
 
 export const fitnessNodes = [
   {
-    id: "16",
-    data: {
-      name: "Jupiter!",
-      description: "Add 20lbs weighted pull up 5 rep max.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "16",
+    "data": {
+      "name": "Jupiter!",
+      "description": "Add 20lbs weighted pull up 5 rep max.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:33:10.448Z",
-      completedAt: null,
-      imageSrc: "/icons/Jupiter.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:33:10.448Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Jupiter.svg"
     },
-    position: {
-      x: 422.8249849040926,
-      y: -547.4502729497549,
+    "position": {
+      "x": 422.8249849040926,
+      "y": -547.4502729497549
     },
-    type: "task",
-    measured: {
-      width: 73,
-      height: 73,
+    "type": "task",
+    "measured": {
+      "width": 73,
+      "height": 73
     },
-    selected: false,
-    dragging: false,
-    width: 73,
-    height: 73,
-    resizing: false,
+    "selected": false,
+    "dragging": false,
+    "width": 73,
+    "height": 73,
+    "resizing": false
   },
   {
-    id: "15",
-    data: {
-      name: "Back Arc",
-      description: "1st pull up.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "15",
+    "data": {
+      "name": "Back Arc",
+      "description": "1st pull up.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:31:48.359Z",
-      completedAt: null,
-      imageSrc: "/icons/BackArc.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:31:48.359Z",
+      "completedAt": "2024-07-24T05:57:22.779Z",
+      "imageSrc": "/icons/BackArc.svg"
     },
-    position: {
-      x: 312.45509026370803,
-      y: -257.849948323896,
+    "position": {
+      "x": 312.45509026370803,
+      "y": -257.849948323896
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "14",
-    data: {
-      name: "Not enough Gravity!",
-      description: "First weighted pull up",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "14",
+    "data": {
+      "name": "Not enough Gravity!",
+      "description": "First weighted pull up",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:30:59.069Z",
-      completedAt: null,
-      imageSrc: "/icons/NotenoughGravity.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:30:59.069Z",
+      "completedAt": null,
+      "imageSrc": "/icons/NotenoughGravity.svg"
     },
-    position: {
-      x: 311.64389613959435,
-      y: -410.2567441680875,
+    "position": {
+      "x": 311.64389613959435,
+      "y": -410.2567441680875
     },
-    type: "task",
-    measured: {
-      width: 47,
-      height: 47,
+    "type": "task",
+    "measured": {
+      "width": 47,
+      "height": 47
     },
-    selected: false,
-    dragging: false,
-    width: 47,
-    height: 47,
-    resizing: false,
+    "selected": false,
+    "dragging": false,
+    "width": 47,
+    "height": 47,
+    "resizing": false
   },
   {
-    id: "13",
-    data: {
-      name: "Investor",
-      description: "Keep track of calories for over 16 months.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "13",
+    "data": {
+      "name": "Investor",
+      "description": "Keep track of calories for over 16 months.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:30:14.628Z",
-      completedAt: null,
-      imageSrc: "/icons/Investor.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:30:14.628Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Investor.svg"
     },
-    position: {
-      x: -157.67844286167946,
-      y: -475.47756080664465,
+    "position": {
+      "x": -157.67844286167946,
+      "y": -475.47756080664465
     },
-    type: "task",
-    measured: {
-      width: 75,
-      height: 75,
+    "type": "task",
+    "measured": {
+      "width": 75,
+      "height": 75
     },
-    selected: false,
-    dragging: false,
-    width: 75,
-    height: 75,
-    resizing: false,
+    "selected": false,
+    "dragging": false,
+    "width": 75,
+    "height": 75,
+    "resizing": false
   },
   {
-    id: "12",
-    data: {
-      name: "Strategist",
-      description: "Keep track of calories for more than 2 months.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "12",
+    "data": {
+      "name": "Strategist",
+      "description": "Keep track of calories for more than 2 months.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:29:26.371Z",
-      completedAt: null,
-      imageSrc: "/icons/Strategist.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:29:26.371Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Strategist.svg"
     },
-    position: {
-      x: -143.52603933493492,
-      y: -316.17210096313573,
+    "position": {
+      "x": -143.52603933493492,
+      "y": -316.17210096313573
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "11",
-    data: {
-      name: "Orc",
-      description: "Bench 250lbs 3rep max.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "11",
+    "data": {
+      "name": "Orc",
+      "description": "Bench 250lbs 3rep max.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:28:40.074Z",
-      completedAt: null,
-      imageSrc: "/icons/Orc.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:28:40.074Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Orc.svg"
     },
-    position: {
-      x: 135.98633989111576,
-      y: -472.0773779351249,
+    "position": {
+      "x": 129.77137371679186,
+      "y": -492.27601800167764
     },
-    type: "task",
-    measured: {
-      width: 83,
-      height: 83,
+    "type": "task",
+    "measured": {
+      "width": 96,
+      "height": 96
     },
-    selected: false,
-    dragging: false,
-    width: 83,
-    height: 83,
-    resizing: false,
+    "selected": false,
+    "dragging": false,
+    "width": 96,
+    "height": 96,
+    "resizing": false
   },
   {
-    id: "10",
-    data: {
-      name: "Bugbear",
-      description: "Bench 200 lbs 5 rm",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "10",
+    "data": {
+      "name": "Bugbear",
+      "description": "Bench 200 lbs 5 rm",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:27:57.850Z",
-      completedAt: null,
-      imageSrc: "/icons/Bugbear.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:27:57.850Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Bugbear.svg"
     },
-    position: {
-      x: 148.2536330322404,
-      y: -280.4081461805897,
+    "position": {
+      "x": 139.70805454254503,
+      "y": -289.7305954420756
     },
-    type: "task",
-    measured: {
-      width: 58,
-      height: 58,
+    "type": "task",
+    "measured": {
+      "width": 76,
+      "height": 76
     },
-    selected: false,
-    dragging: false,
-    width: 58,
-    height: 58,
-    resizing: false,
+    "selected": false,
+    "dragging": false,
+    "width": 76,
+    "height": 76,
+    "resizing": false
   },
   {
-    id: "9",
-    data: {
-      name: "Hobgoblin",
-      description: "bench 150lbs 6rm.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: "source",
-        right: "source",
+    "id": "9",
+    "data": {
+      "name": "Hobgoblin",
+      "description": "bench 150lbs 6rm.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": "source",
+        "right": "source"
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:27:09.472Z",
-      completedAt: null,
-      imageSrc: "/icons/Hobgoblin.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:27:09.472Z",
+      "completedAt": "2024-07-24T05:56:58.722Z",
+      "imageSrc": "/icons/Hobgoblin.svg"
     },
-    position: {
-      x: 154.83319649245314,
-      y: -115.55380109422492,
+    "position": {
+      "x": 145.5107472309673,
+      "y": -120.99189649675834
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 64,
+      "height": 64
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false,
+    "width": 64,
+    "height": 64,
+    "resizing": false
   },
   {
-    id: "8",
-    data: {
-      name: "Alliance",
-      description: "Find a gym bro.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: "target",
+    "id": "8",
+    "data": {
+      "name": "Alliance",
+      "description": "Find a gym bro.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": "target"
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:25:09.877Z",
-      completedAt: null,
-      imageSrc: "/icons/Alliance.svg",
+      "isCompleted": false,
+      "createdAt": "2024-07-23T10:25:09.877Z",
+      "completedAt": null,
+      "imageSrc": "/icons/Alliance.svg"
     },
-    position: {
-      x: 311.4352679016126,
-      y: -52.17603238893932,
+    "position": {
+      "x": 311.4352679016126,
+      "y": -52.17603238893932
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "7",
-    data: {
-      name: "Goblin",
-      description: "Bench 100 lbs 4 set 6 reps.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: "source",
-        right: "source",
+    "id": "7",
+    "data": {
+      "name": "Goblin",
+      "description": "Bench 100 lbs 4 set 6 reps.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": "source",
+        "right": "source"
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:24:26.469Z",
-      completedAt: null,
-      imageSrc: "/icons/Goblin.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:24:26.469Z",
+      "completedAt": "2024-07-24T05:56:47.194Z",
+      "imageSrc": "/icons/Goblin.svg"
     },
-    position: {
-      x: 154.98861305791903,
-      y: 32.44686116285914,
+    "position": {
+      "x": 154.98861305791903,
+      "y": 32.44686116285914
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "6",
-    data: {
-      name: "Quant",
-      description: "Maintain strict 200 cal surplus for a week!",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "6",
+    "data": {
+      "name": "Quant",
+      "description": "Maintain strict 200 cal surplus for a week!",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:23:16.275Z",
-      completedAt: null,
-      imageSrc: "/icons/Quant.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:23:16.275Z",
+      "completedAt": "2024-07-24T05:57:56.531Z",
+      "imageSrc": "/icons/Quant.svg"
     },
-    position: {
-      x: -144.4855186110545,
-      y: -173.2341856751833,
+    "position": {
+      "x": -144.4855186110545,
+      "y": -173.2341856751833
     },
-    type: "task",
-    measured: {
-      width: 47,
-      height: 47,
+    "type": "task",
+    "measured": {
+      "width": 47,
+      "height": 47
     },
-    selected: false,
-    dragging: false,
-    width: 47,
-    height: 47,
-    resizing: false,
+    "selected": true,
+    "dragging": false,
+    "width": 47,
+    "height": 47,
+    "resizing": false
   },
   {
-    id: "5",
-    data: {
-      name: "Satori",
-      description: "Figured out your base calorie consumption.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "5",
+    "data": {
+      "name": "Satori",
+      "description": "Figured out your base calorie consumption.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:22:50.242Z",
-      completedAt: null,
-      imageSrc: "/icons/Satori.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:22:50.242Z",
+      "completedAt": "2024-07-24T05:57:49.303Z",
+      "imageSrc": "/icons/Satori.svg"
     },
-    position: {
-      x: -216.75703250486387,
-      y: -25.443366634764953,
+    "position": {
+      "x": -216.75703250486387,
+      "y": -25.443366634764953
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "4",
-    data: {
-      name: "Scientist",
-      description: "Keep track your calories for a week.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "4",
+    "data": {
+      "name": "Scientist",
+      "description": "Keep track your calories for a week.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:21:14.472Z",
-      completedAt: null,
-      imageSrc: "/icons/Scientist.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:21:14.472Z",
+      "completedAt": "2024-07-24T05:57:42.723Z",
+      "imageSrc": "/icons/Scientist.svg"
     },
-    position: {
-      x: -23.86537189034639,
-      y: -68.84423285517323,
+    "position": {
+      "x": -23.86537189034639,
+      "y": -68.84423285517323
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "3",
-    data: {
-      name: "Novice Nutritionist",
-      description: "Listen to them gurus, and eat Mediterranean.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: "source",
-        right: "source",
+    "id": "3",
+    "data": {
+      "name": "Novice Nutritionist",
+      "description": "Listen to them gurus, and eat Mediterranean.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": "source",
+        "right": "source"
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:20:43.672Z",
-      completedAt: null,
-      imageSrc: "/icons/NoviceNutritionist.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:20:43.672Z",
+      "completedAt": "2024-07-24T05:57:31.746Z",
+      "imageSrc": "/icons/NoviceNutritionist.svg"
     },
-    position: {
-      x: -94.53284772195579,
-      y: 30.6261316492282,
+    "position": {
+      "x": -94.53284772195579,
+      "y": 30.6261316492282
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "2",
-    data: {
-      name: "Bare Bone",
-      description: "Find a basic plan and start training for a month.",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "2",
+    "data": {
+      "name": "Bare Bone",
+      "description": "Find a basic plan and start training for a month.",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:18:34.661Z",
-      completedAt: null,
-      imageSrc: "/icons/BareBone.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:18:34.661Z",
+      "completedAt": "2024-07-24T05:56:39.106Z",
+      "imageSrc": "/icons/BareBone.svg"
     },
-    position: {
-      x: 55.7049182826738,
-      y: 175.38542764854353,
+    "position": {
+      "x": 55.7049182826738,
+      "y": 175.38542764854353
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
+    "selected": false,
+    "dragging": false
   },
   {
-    id: "1",
-    data: {
-      name: "Beginner's Streak",
-      description: "Show up to any gym for 10 days.\n",
-      subtasks: [],
-      connections: {
-        up: "source",
-        down: "target",
-        left: null,
-        right: null,
+    "id": "1",
+    "data": {
+      "name": "Beginner's Streak",
+      "description": "Show up to any gym for 10 days.\n",
+      "subtasks": [],
+      "connections": {
+        "up": "source",
+        "down": "target",
+        "left": null,
+        "right": null
       },
-      isCompleted: false,
-      createdAt: "2024-07-23T10:17:30.229Z",
-      completedAt: null,
-      imageSrc: "/icons/10DaysStraight.svg",
+      "isCompleted": true,
+      "createdAt": "2024-07-23T10:17:30.229Z",
+      "completedAt": "2024-07-24T05:56:31.786Z",
+      "imageSrc": "/icons/10DaysStraight.svg"
     },
-    position: {
-      x: 55.76893365348802,
-      y: 292.1824068914026,
+    "position": {
+      "x": 55.76893365348802,
+      "y": 292.1824068914026
     },
-    type: "task",
-    measured: {
-      width: 46,
-      height: 46,
+    "type": "task",
+    "measured": {
+      "width": 46,
+      "height": 46
     },
-    selected: false,
-    dragging: false,
-  },
-];
+    "selected": false,
+    "dragging": false
+  }
+]
