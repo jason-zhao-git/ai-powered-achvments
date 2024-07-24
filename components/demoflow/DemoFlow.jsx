@@ -24,7 +24,7 @@ import TaskNode from "./Nodes/TaskNode.jsx";
 import AnnotationNode from "./Nodes/AnnotationNode.jsx";
 import NarratorNode from "./Nodes/NarratorNode.jsx";
 
-import TaskEdge from "./Edges/TaskEdge.tsx";
+import TaskEdge from "./Edges/TaskEdge.jsx";
 
 import AddNodeModal from "./AddNode/AddNodeModal.tsx";
 import CustomControls from "./CustomControls.jsx";
@@ -269,7 +269,7 @@ function FlowComponent({ flowKey }) {
           minZoom: 0.5,
           maxZoom: 2,
         });
-        toast.success(<div>Node "{node.data.name}" found!</div>, {
+        toast.success(<div>Node &quot;{node.data.name}&quot; found!</div>, {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -281,7 +281,7 @@ function FlowComponent({ flowKey }) {
           className: "toast-success",
         });
       } else {
-        toast.error(<div>Node "{searchTerm}" not found!</div>, {
+        toast.error(<div>Node &quot;{searchTerm}&quot; not found!</div>, {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
