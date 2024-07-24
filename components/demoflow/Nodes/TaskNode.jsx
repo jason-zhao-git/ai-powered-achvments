@@ -8,10 +8,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import TriangleUpIcon from "/public/Icons/Nodes/triangle-up.svg";
-import TriangleDownIcon from "/public/Icons/Nodes/triangle-down.svg";
-import TriangleLeftIcon from "/public/Icons/Nodes/triangle-left.svg";
-import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg";
+import TriangleUpIcon from "/public/icons/Nodes/triangle-up.svg";
+import TriangleDownIcon from "/public/icons/Nodes/triangle-down.svg";
+import TriangleLeftIcon from "/public/icons/Nodes/triangle-left.svg";
+import TriangleRightIcon from "/public/icons/Nodes/triangle-right.svg";
 import TaskDialog from "../addnodes/TaskDialog.jsx"; // Import the dialog component
 import { useReactFlow, NodeResizeControl } from "@xyflow/react";
 import ResizeIcon from "./ResizeIcon"
