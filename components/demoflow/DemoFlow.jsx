@@ -26,7 +26,7 @@ import NarratorNode from "./Nodes/NarratorNode.jsx";
 
 import TaskEdge from "./Edges/TaskEdge.tsx";
 
-import AddNodeModal from "./Addnodes/AddNodeModal.tsx";
+import AddNodeModal from "./AddNodes/AddNodeModal.tsx";
 import CustomControls from "./CustomControls.jsx";
 
 import { ToastContainer, toast } from "react-toastify";
