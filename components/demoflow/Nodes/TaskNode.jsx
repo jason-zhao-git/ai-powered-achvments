@@ -90,7 +90,7 @@ function TaskNode ({ id, data, isConnectable, dragging }) {
                 isHovered ? "hover-effect" : ""
               } ${
                 nodeData.isCompleted
-                  ? `border-yellow-500 border-double !shadow-[0_0_10px_2px_rgba(255,215,0,0.6)]`
+                  ? `border-yellow-500 border-double shadow-custom`
                   : "border-gray-500 rounded-sm"
               }`}
               style={{ borderWidth: `${borderWidth}px` }}

@@ -20,6 +20,7 @@ const config = {
       },
     },
     extend: {
+      
       inset: {
         "1/6": "16.666667%",
         "1/7": "14.285714%",
@@ -43,6 +44,7 @@ const config = {
       },
       boxShadow: {
         "5xl": "40px 40px 50px rgba(0, 0, 0, 0.5)",
+        'custom': '0 0 10px 2px rgba(255, 215, 0, 0.6) !important',
       },
       colors: {
         border: "hsl(var(--border))",
