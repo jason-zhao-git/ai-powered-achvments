@@ -102,4 +102,4 @@ function NarratorNode({ id, data, isConnectable, dragging }) {
   );
 }
 
-export default memo(NarratorNode, {displayName: "NarratorNode"});
+export default memo(NarratorNode);

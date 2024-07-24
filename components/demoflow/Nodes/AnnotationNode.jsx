@@ -2,8 +2,9 @@ import { memo, useState } from "react";
 import { useReactFlow } from "@xyflow/react";
 import { Position, NodeResizeControl } from "@xyflow/react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import AnnotationDialog from "../AddNode/AnnotationDialog.jsx"; // Import the dialog component
+import AnnotationDialog from "../addnodes/AnnotationDialog.jsx"; // Import the dialog component
 import "../../css/nodes.css";
+
 import ResizeIcon from "./ResizeIcon.jsx";
 
 function AnnotationNode({ id, data, isConnectable, dragging }) {
@@ -90,4 +91,4 @@ function AnnotationNode({ id, data, isConnectable, dragging }) {
   );
 }
 
-export default memo(AnnotationNode, {displayName: "AnnotationNode"});
+export default memo(AnnotationNode);

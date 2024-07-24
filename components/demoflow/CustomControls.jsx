@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useStoreApi, useReactFlow, Panel } from '@xyflow/react';
 import Image from 'next/image';
 
-import AddNodeIcon from '../../public/Icons/Controls/add-node.svg';
-import ZoomInIcon from '../../public/Icons/Controls/zoom-in.svg';
-import ZoomOutIcon from '../../public/Icons/Controls/zoom-out.svg';
-import FitViewIcon from '../../public/Icons/Controls/fit-view.svg';
-import LockIcon from '../../public/Icons/Controls/Lock.svg';
-import UnlockIcon from '../../public/Icons/Controls/Unlock.svg';
+import AddNodeIcon from '../../public/icons/controls/add-node.svg';
+import ZoomInIcon from '../../public/icons/controls/zoom-in.svg';
+import ZoomOutIcon from '../../public/icons/controls/zoom-out.svg';
+import FitViewIcon from '../../public/icons/controls/fit-view.svg';
+import LockIcon from '../../public/icons/controls/Lock.svg';
+import UnlockIcon from '../../public/icons/controls/Unlock.svg';
 
 import SearchBar from './SearchBar.jsx'; // Ensure the correct import path
 

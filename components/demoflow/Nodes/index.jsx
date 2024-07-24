@@ -836,7 +836,7 @@ export const codeNodes = [
     "id": "14",
     "data": {
       "name": "A Piece of Ma Mind",
-      "description": "Build a profolio website with API integration.",
+      "description": "Build a profolio website with API integration. https://jingqiaozhao.dev/",
       "subtasks": [],
       "connections": {
         "up": null,

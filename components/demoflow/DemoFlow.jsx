@@ -18,15 +18,15 @@ import {
 import "@xyflow/react/dist/style.css";
 
 import defaultNodes from "./Nodes/index.jsx";
-import defaultEdges from "./Edges/index.jsx";
+import defaultEdges from "./edges/index.jsx";
 
 import TaskNode from "./Nodes/TaskNode.jsx";
 import AnnotationNode from "./Nodes/AnnotationNode.jsx";
 import NarratorNode from "./Nodes/NarratorNode.jsx";
 
-import TaskEdge from "./Edges/TaskEdge.jsx";
+import TaskEdge from "./edges/TaskEdge.tsx";
 
-import AddNodeModal from "./AddNode/AddNodeModal.tsx";
+import AddNodeModal from "./addnodes/AddNodeModal.tsx";
 import CustomControls from "./CustomControls.jsx";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -45,7 +45,7 @@ import {
   codeEdges,
   vocalEdges,
   fitnessEdges,
-} from "./Edges/index.jsx";
+} from "./edges/index.jsx";
 
 const nodeTypes = {
   task: TaskNode,

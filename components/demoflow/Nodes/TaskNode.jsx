@@ -12,11 +12,11 @@ import TriangleUpIcon from "/public/Icons/Nodes/triangle-up.svg";
 import TriangleDownIcon from "/public/Icons/Nodes/triangle-down.svg";
 import TriangleLeftIcon from "/public/Icons/Nodes/triangle-left.svg";
 import TriangleRightIcon from "/public/Icons/Nodes/triangle-right.svg";
-import TaskDialog from "../AddNode/TaskDialog.jsx"; // Import the dialog component
+import TaskDialog from "../addnodes/TaskDialog.jsx"; // Import the dialog component
 import { useReactFlow, NodeResizeControl } from "@xyflow/react";
 import ResizeIcon from "./ResizeIcon"
 
-const TaskNode = ({ id, data, isConnectable, dragging }) => {
+function TaskNode ({ id, data, isConnectable, dragging }) {
   const [isHovered, setIsHovered] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -262,4 +262,4 @@ const TaskNode = ({ id, data, isConnectable, dragging }) => {
 
 
 
-export default memo(TaskNode, {displayName: "TaskNode"});
+export default memo(TaskNode);
