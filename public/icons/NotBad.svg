@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0954 18.1892C10.2251 15.9585 11.9923 14.2726 14.1987 13.9192C16.3772 13.5703 19.105 13.0602 21.2305 12.4239C23.9034 11.6238 27.5286 10.0539 29.8162 9.01576C31.2034 8.38626 32.7966 8.38626 34.1838 9.01576C36.4714 10.0539 40.0966 11.6238 42.7695 12.4239C44.895 13.0602 47.6228 13.5703 49.8013 13.9192C52.0077 14.2726 53.7749 15.9585 53.9046 18.1892C54.418 27.02 53.5497 48.9163 33.3725 55.5791C32.4916 55.87 31.5084 55.87 30.6275 55.5791C10.4503 48.9163 9.58202 27.02 10.0954 18.1892Z" fill="#0F277F"/>
+<path d="M14 19.919V23.2029C14 24.413 15.7485 24.5828 15.9813 23.3953L16.3545 21.4922C16.4482 21.0139 16.7134 20.5864 17.1002 20.2898L19.0415 18.8015C19.9438 18.1098 19.1758 16.6885 18.1027 17.064L15.3393 18.0312C14.5371 18.312 14 19.0691 14 19.919Z" fill="white"/>
+<path d="M36 40.5L38 42.5V45" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28 40.5L26 42.5V45" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39 35H42L44 37" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 28H41L43 26" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26 28H23L21 26" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 35H22L20 37" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 21L27 18" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 21L37 18" stroke="#FDAFA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33 23.0709C32.6734 23.0242 32.3395 23 32 23C31.6605 23 31.3266 23.0242 31 23.0709L31 41.9291C31.3266 41.9758 31.6605 42 32 42C32.3395 42 32.6734 41.9758 33 41.9291L33 23.0709ZM35 41.3264C37.3649 40.2029 39 37.7924 39 35V30C39 27.2076 37.3649 24.7971 35 23.6736L35 41.3264ZM25 30C25 27.2076 26.6351 24.7971 29 23.6736L29 41.3264C26.6351 40.2029 25 37.7924 25 35V30Z" fill="#FDAFA4"/>
+</svg>
