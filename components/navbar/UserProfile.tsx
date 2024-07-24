@@ -11,7 +11,7 @@ import {
 import { Button } from "../ui/button";
 import { signOutAction } from "@/serveractions/auth-action";
 
-const defaultImage ="/Icons/google.svg";
+const defaultImage ="/icons/google.svg";
 const defaultName = "Guest User";
 
 export default function UserProfile() {
