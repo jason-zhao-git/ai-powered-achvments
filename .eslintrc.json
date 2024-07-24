@@ -1,7 +1,6 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "react/display-name": "warn",
-    // Add any other rules you need
-  },
+    "react/display-name": "warn"
+  }
 }
