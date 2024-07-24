@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import DemoFlow from "@/components/demoflow/DemoFlow";
 
