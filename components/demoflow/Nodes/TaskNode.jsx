@@ -12,7 +12,7 @@ import TriangleUpIcon from "/public/icons/Nodes/triangle-up.svg";
 import TriangleDownIcon from "/public/icons/Nodes/triangle-down.svg";
 import TriangleLeftIcon from "/public/icons/Nodes/triangle-left.svg";
 import TriangleRightIcon from "/public/icons/Nodes/triangle-right.svg";
-import TaskDialog from "../addnodes/TaskDialog.jsx"; // Import the dialog component
+import TaskDialog from "../Addnodes/TaskDialog.jsx"; // Import the dialog component
 import { useReactFlow, NodeResizeControl } from "@xyflow/react";
 import ResizeIcon from "./ResizeIcon"
 
