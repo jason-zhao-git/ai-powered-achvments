@@ -90,8 +90,12 @@ function TaskNode ({ id, data, isConnectable, dragging }) {
                 isHovered ? "hover-effect" : ""
               } ${
                 nodeData.isCompleted
-                  ? `border-yellow-500 border-double shadow-custom`
+                  ? `border-yellow-500 border-double !shadow-custom`
                   : "border-gray-500 rounded-sm"
+              } ${
+                nodeData.isCompleted
+                  ? "!shadow-custom"
+                  : ""
               }`}
               style={{ borderWidth: `${borderWidth}px` }}
               onMouseEnter={() => setIsHovered(true)}
