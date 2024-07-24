@@ -260,6 +260,6 @@ function TaskNode ({ id, data, isConnectable, dragging }) {
   );
 };
 
-
+TaskNode.displayName = "TaskNode"; // Add display name
 
 export default memo(TaskNode);
