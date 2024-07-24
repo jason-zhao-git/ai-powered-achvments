@@ -6,7 +6,7 @@ import Image from "next/image";
 import AddNodeForm from "./AddNodeForm.jsx"; // Adjust the path as necessary
 
 // Import the Close icon
-import CloseIcon from "/public/Icons/Close.svg";
+import CloseIcon from "../../../public/Icons/Close.svg";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 
