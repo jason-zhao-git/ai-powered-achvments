@@ -91,7 +91,7 @@ function FlowComponent({ flowKey }) {
   }
   const initializeNodes = () => {
     if (typeof window !== "undefined") {
-      const flow = JSON.parse(localStorage.getItem(flowKey));
+      const flow = JSON.parse(window.localStorage.getItem(flowKey));
       return flow ? flow.nodes : defaultNodes;
     }
     return defaultNodes;
@@ -100,7 +100,7 @@ function FlowComponent({ flowKey }) {
   // Function to initialize edges from local storage or default
   const initializeEdges = () => {
     if (typeof window !== "undefined") {
-      const flow = JSON.parse(localStorage.getItem(flowKey));
+      const flow = JSON.parse(window.localStorage.getItem(flowKey));
       return flow ? flow.edges : defaultEdges;
     }
     return defaultEdges;
@@ -126,14 +126,14 @@ function FlowComponent({ flowKey }) {
   const onSave = useCallback(() => {
     if (typeof window !== "undefined" && rfInstance) {
       const flow = rfInstance.toObject();
-      localStorage.setItem(flowKey, JSON.stringify(flow));
+      window.localStorage.setItem(flowKey, JSON.stringify(flow));
     }
   }, [rfInstance]);
 
   const onRestore = useCallback(() => {
     const restoreFlow = async () => {
       if (typeof window !== "undefined") {
-        const flow = JSON.parse(localStorage.getItem(flowKey));
+        const flow = JSON.parse(window.localStorage.getItem(flowKey));
 
         if (flow) {
           const { x = 0, y = 0, zoom = 1 } = flow.viewport;

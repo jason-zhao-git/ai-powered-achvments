@@ -614,7 +614,7 @@ export const tutorialNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T00:12:40.692Z",
       completedAt: null,
-      imageSrc: "/Icons/task4.svg",
+      imageSrc: "/icons/task4.svg",
     },
     position: {
       x: 283.0923945082769,
@@ -643,7 +643,7 @@ export const tutorialNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T00:11:29.033Z",
       completedAt: null,
-      imageSrc: "/Icons/task3.svg",
+      imageSrc: "/icons/task3.svg",
     },
     position: {
       x: 453.35668844331417,
@@ -673,7 +673,7 @@ export const tutorialNodes = [
       isCompleted: true,
       createdAt: "2024-07-23T00:10:54.529Z",
       completedAt: "2024-07-23T00:35:52.194Z",
-      imageSrc: "/Icons/task2.svg",
+      imageSrc: "/icons/task2.svg",
     },
     position: {
       x: 430.7919771250247,
@@ -705,7 +705,7 @@ export const tutorialNodes = [
       isCompleted: true,
       createdAt: "2024-07-23T00:09:50.920Z",
       completedAt: "2024-07-23T00:37:01.516Z",
-      imageSrc: "/Icons/task1.svg",
+      imageSrc: "/icons/task1.svg",
     },
     position: {
       x: 593.4337971978762,
@@ -786,7 +786,7 @@ export const codeNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T08:05:06.985Z",
       "completedAt": null,
-      "imageSrc": "/Icons/BuZZWord.svg"
+      "imageSrc": "/icons/BuZZWord.svg"
     },
     "position": {
       "x": -290.45504963047074,
@@ -815,7 +815,7 @@ export const codeNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T08:02:37.836Z",
       "completedAt": null,
-      "imageSrc": "/Icons/FullStackkkkk.svg"
+      "imageSrc": "/icons/FullStackkkkk.svg"
     },
     "position": {
       "x": 493.37339082340145,
@@ -847,7 +847,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T08:00:49.083Z",
       "completedAt": "2024-07-23T22:55:53.542Z",
-      "imageSrc": "/Icons/APieceofMaMind.svg"
+      "imageSrc": "/icons/APieceofMaMind.svg"
     },
     "position": {
       "x": 788.544377336267,
@@ -879,7 +879,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:58:58.000Z",
       "completedAt": "2024-07-23T22:55:44.966Z",
-      "imageSrc": "/Icons/ReactKitty.svg"
+      "imageSrc": "/icons/ReactKitty.svg"
     },
     "position": {
       "x": 559.9572096718186,
@@ -911,7 +911,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:57:39.414Z",
       "completedAt": "2024-07-23T22:54:34.353Z",
-      "imageSrc": "/Icons/JuniorJS.svg"
+      "imageSrc": "/icons/JuniorJS.svg"
     },
     "position": {
       "x": 651.2351077004004,
@@ -940,7 +940,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:56:22.061Z",
       "completedAt": "2024-07-23T22:54:28.643Z",
-      "imageSrc": "/Icons/FancierLaTeX.svg"
+      "imageSrc": "/icons/FancierLaTeX.svg"
     },
     "position": {
       "x": 483.19116494746015,
@@ -969,7 +969,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:52:19.648Z",
       "completedAt": "2024-07-23T22:56:22.479Z",
-      "imageSrc": "/Icons/RabbitHole.svg"
+      "imageSrc": "/icons/RabbitHole.svg"
     },
     "position": {
       "x": -23.165962170895156,
@@ -1001,7 +1001,7 @@ export const codeNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T07:47:58.001Z",
       "completedAt": null,
-      "imageSrc": "/Icons/LifeSentence.svg"
+      "imageSrc": "/icons/LifeSentence.svg"
     },
     "position": {
       "x": 261.0890610481651,
@@ -1033,7 +1033,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:45:56.419Z",
       "completedAt": "2024-07-23T22:56:05.630Z",
-      "imageSrc": "/Icons/Prisoner.svg"
+      "imageSrc": "/icons/Prisoner.svg"
     },
     "position": {
       "x": 279.40891249594785,
@@ -1062,7 +1062,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:39:20.078Z",
       "completedAt": "2024-07-23T22:54:12.555Z",
-      "imageSrc": "/Icons/OOP.svg"
+      "imageSrc": "/icons/OOP.svg"
     },
     "position": {
       "x": 285.038241264147,
@@ -1091,7 +1091,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:38:36.692Z",
       "completedAt": "2024-07-23T22:55:13.197Z",
-      "imageSrc": "/Icons/NotBad.svg"
+      "imageSrc": "/icons/NotBad.svg"
     },
     "position": {
       "x": 180.4809350448876,
@@ -1120,7 +1120,7 @@ export const codeNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T07:35:38.304Z",
       "completedAt": null,
-      "imageSrc": "/Icons/MajesticPython.svg"
+      "imageSrc": "/icons/MajesticPython.svg"
     },
     "position": {
       "x": -258.83710543358745,
@@ -1152,7 +1152,7 @@ export const codeNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T07:34:07.990Z",
       "completedAt": null,
-      "imageSrc": "/Icons/Serpent.svg"
+      "imageSrc": "/icons/Serpent.svg"
     },
     "position": {
       "x": -306.8821846103523,
@@ -1184,7 +1184,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:33:11.676Z",
       "completedAt": "2024-07-23T22:56:16.942Z",
-      "imageSrc": "/Icons/Adolescent.svg"
+      "imageSrc": "/icons/Adolescent.svg"
     },
     "position": {
       "x": -13.559004083650056,
@@ -1213,7 +1213,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:31:50.875Z",
       "completedAt": "2024-07-23T22:55:02.990Z",
-      "imageSrc": "/Icons/Youngling.svg"
+      "imageSrc": "/icons/Youngling.svg"
     },
     "position": {
       "x": -63.38602486418485,
@@ -1242,7 +1242,7 @@ export const codeNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T07:31:13.027Z",
       "completedAt": "2024-07-23T22:54:19.756Z",
-      "imageSrc": "/Icons/Hatchling.svg"
+      "imageSrc": "/icons/Hatchling.svg"
     },
     "position": {
       "x": 74.1086412125781,
@@ -1274,7 +1274,7 @@ export const vocalNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T09:45:17.392Z",
       "completedAt": null,
-      "imageSrc": "/Icons/Gearup.svg"
+      "imageSrc": "/icons/Gearup.svg"
     },
     "position": {
       "x": 108.81291176925343,
@@ -1303,7 +1303,7 @@ export const vocalNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T09:44:04.406Z",
       "completedAt": null,
-      "imageSrc": "/Icons/JudgeMe.svg"
+      "imageSrc": "/icons/JudgeMe.svg"
     },
     "position": {
       "x": -253.01198200121598,
@@ -1335,7 +1335,7 @@ export const vocalNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T09:43:13.325Z",
       "completedAt": null,
-      "imageSrc": "/Icons/MicHog.svg"
+      "imageSrc": "/icons/MicHog.svg"
     },
     "position": {
       "x": 247.88212086910198,
@@ -1367,7 +1367,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:41:21.442Z",
       "completedAt": "2024-07-23T23:19:53.473Z",
-      "imageSrc": "/Icons/Literate.svg"
+      "imageSrc": "/icons/Literate.svg"
     },
     "position": {
       "x": 377.35421949312155,
@@ -1396,7 +1396,7 @@ export const vocalNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T09:38:54.174Z",
       "completedAt": null,
-      "imageSrc": "/Icons/Villain.svg"
+      "imageSrc": "/icons/Villain.svg"
     },
     "position": {
       "x": 96.20112569735583,
@@ -1428,7 +1428,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:36:00.963Z",
       "completedAt": "2024-07-23T23:19:04.583Z",
-      "imageSrc": "/Icons/CertifiedBass.svg"
+      "imageSrc": "/icons/CertifiedBass.svg"
     },
     "position": {
       "x": -53.22741574808511,
@@ -1457,7 +1457,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:32:34.350Z",
       "completedAt": "2024-07-23T23:19:22.376Z",
-      "imageSrc": "/Icons/AWindfall.svg"
+      "imageSrc": "/icons/AWindfall.svg"
     },
     "position": {
       "x": -321.16824550217194,
@@ -1489,7 +1489,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:30:49.198Z",
       "completedAt": "2024-07-23T23:18:58.463Z",
-      "imageSrc": "/Icons/TrainingWheel.svg"
+      "imageSrc": "/icons/TrainingWheel.svg"
     },
     "position": {
       "x": -133.95053349918092,
@@ -1521,7 +1521,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:28:20.320Z",
       "completedAt": "2024-07-23T23:18:51.966Z",
-      "imageSrc": "/Icons/OpenTube.svg"
+      "imageSrc": "/icons/OpenTube.svg"
     },
     "position": {
       "x": -182.19415512988667,
@@ -1550,7 +1550,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:27:22.815Z",
       "completedAt": "2024-07-23T23:19:47.056Z",
-      "imageSrc": "/Icons/Narcissist.svg"
+      "imageSrc": "/icons/Narcissist.svg"
     },
     "position": {
       "x": 259.86574098662686,
@@ -1582,7 +1582,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:24:26.803Z",
       "completedAt": "2024-07-23T23:19:13.552Z",
-      "imageSrc": "/Icons/ThatsWhatIdo.svg"
+      "imageSrc": "/icons/ThatsWhatIdo.svg"
     },
     "position": {
       "x": 9.660936464576732,
@@ -1611,7 +1611,7 @@ export const vocalNodes = [
       "isCompleted": false,
       "createdAt": "2024-07-23T09:23:43.731Z",
       "completedAt": null,
-      "imageSrc": "/Icons/QuietHour.svg"
+      "imageSrc": "/icons/QuietHour.svg"
     },
     "position": {
       "x": 132.47897390655535,
@@ -1640,7 +1640,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:22:49.072Z",
       "completedAt": "2024-07-23T23:18:39.510Z",
-      "imageSrc": "/Icons/10DaysStraight.svg"
+      "imageSrc": "/icons/10DaysStraight.svg"
     },
     "position": {
       "x": 132.35689638452044,
@@ -1669,7 +1669,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:21:24.335Z",
       "completedAt": "2024-07-23T23:18:46.310Z",
-      "imageSrc": "/Icons/ENMMMMM.svg"
+      "imageSrc": "/icons/ENMMMMM.svg"
     },
     "position": {
       "x": -97.385548376626,
@@ -1698,7 +1698,7 @@ export const vocalNodes = [
       "isCompleted": true,
       "createdAt": "2024-07-23T09:19:59.719Z",
       "completedAt": "2024-07-23T23:18:31.279Z",
-      "imageSrc": "/Icons/StrayCat.svg"
+      "imageSrc": "/icons/StrayCat.svg"
     },
     "position": {
       "x": 11.393123151355567,
@@ -1730,7 +1730,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:33:10.448Z",
       completedAt: null,
-      imageSrc: "/Icons/Jupiter.svg",
+      imageSrc: "/icons/Jupiter.svg",
     },
     position: {
       x: 422.8249849040926,
@@ -1762,7 +1762,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:31:48.359Z",
       completedAt: null,
-      imageSrc: "/Icons/BackArc.svg",
+      imageSrc: "/icons/BackArc.svg",
     },
     position: {
       x: 312.45509026370803,
@@ -1791,7 +1791,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:30:59.069Z",
       completedAt: null,
-      imageSrc: "/Icons/NotenoughGravity.svg",
+      imageSrc: "/icons/NotenoughGravity.svg",
     },
     position: {
       x: 311.64389613959435,
@@ -1823,7 +1823,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:30:14.628Z",
       completedAt: null,
-      imageSrc: "/Icons/Investor.svg",
+      imageSrc: "/icons/Investor.svg",
     },
     position: {
       x: -157.67844286167946,
@@ -1855,7 +1855,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:29:26.371Z",
       completedAt: null,
-      imageSrc: "/Icons/Strategist.svg",
+      imageSrc: "/icons/Strategist.svg",
     },
     position: {
       x: -143.52603933493492,
@@ -1884,7 +1884,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:28:40.074Z",
       completedAt: null,
-      imageSrc: "/Icons/Orc.svg",
+      imageSrc: "/icons/Orc.svg",
     },
     position: {
       x: 135.98633989111576,
@@ -1916,7 +1916,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:27:57.850Z",
       completedAt: null,
-      imageSrc: "/Icons/Bugbear.svg",
+      imageSrc: "/icons/Bugbear.svg",
     },
     position: {
       x: 148.2536330322404,
@@ -1948,7 +1948,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:27:09.472Z",
       completedAt: null,
-      imageSrc: "/Icons/Hobgoblin.svg",
+      imageSrc: "/icons/Hobgoblin.svg",
     },
     position: {
       x: 154.83319649245314,
@@ -1977,7 +1977,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:25:09.877Z",
       completedAt: null,
-      imageSrc: "/Icons/Alliance.svg",
+      imageSrc: "/icons/Alliance.svg",
     },
     position: {
       x: 311.4352679016126,
@@ -2006,7 +2006,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:24:26.469Z",
       completedAt: null,
-      imageSrc: "/Icons/Goblin.svg",
+      imageSrc: "/icons/Goblin.svg",
     },
     position: {
       x: 154.98861305791903,
@@ -2035,7 +2035,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:23:16.275Z",
       completedAt: null,
-      imageSrc: "/Icons/Quant.svg",
+      imageSrc: "/icons/Quant.svg",
     },
     position: {
       x: -144.4855186110545,
@@ -2067,7 +2067,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:22:50.242Z",
       completedAt: null,
-      imageSrc: "/Icons/Satori.svg",
+      imageSrc: "/icons/Satori.svg",
     },
     position: {
       x: -216.75703250486387,
@@ -2096,7 +2096,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:21:14.472Z",
       completedAt: null,
-      imageSrc: "/Icons/Scientist.svg",
+      imageSrc: "/icons/Scientist.svg",
     },
     position: {
       x: -23.86537189034639,
@@ -2125,7 +2125,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:20:43.672Z",
       completedAt: null,
-      imageSrc: "/Icons/NoviceNutritionist.svg",
+      imageSrc: "/icons/NoviceNutritionist.svg",
     },
     position: {
       x: -94.53284772195579,
@@ -2154,7 +2154,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:18:34.661Z",
       completedAt: null,
-      imageSrc: "/Icons/BareBone.svg",
+      imageSrc: "/icons/BareBone.svg",
     },
     position: {
       x: 55.7049182826738,
@@ -2183,7 +2183,7 @@ export const fitnessNodes = [
       isCompleted: false,
       createdAt: "2024-07-23T10:17:30.229Z",
       completedAt: null,
-      imageSrc: "/Icons/10DaysStraight.svg",
+      imageSrc: "/icons/10DaysStraight.svg",
     },
     position: {
       x: 55.76893365348802,
