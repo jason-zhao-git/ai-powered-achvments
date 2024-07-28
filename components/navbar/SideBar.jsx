@@ -13,7 +13,8 @@ import {
 export default function SideBar({ primaryNavItems, questItems }) {
   return (
     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
-      <ScrollArea className="container h-144 w-64 bg-white bg-opacity-30 rounded-lg shadow-lg border-2 border-opacity-30 border-white backdrop-filter backdrop-blur-sm backdrop-saturate-200 flex flex-col justify-start items-center p-6">
+      <ScrollArea className="container max-h-144 h-[50vh] w-64 bg-white bg-opacity-30 rounded-lg shadow-lg border-2 border-opacity-30 border-white backdrop-filter backdrop-blur-sm backdrop-saturate-200 flex flex-col justify-start items-center p-6 mb-6">
+
         <div className="flex h-full w-full flex-col gap-2 bg-transparent">
           <div className="flex h-14 items-center pb-4 border-b-2 px-6 lg:h-[60px] lg:px-6">
             <UserProfile />
