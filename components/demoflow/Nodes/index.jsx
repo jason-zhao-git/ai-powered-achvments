@@ -2200,4 +2200,4 @@ export const fitnessNodes = [
     "selected": false,
     "dragging": false
   }
-]
+];

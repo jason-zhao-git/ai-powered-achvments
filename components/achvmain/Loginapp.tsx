@@ -14,7 +14,7 @@ const Loginapp = () => {
       className="App relative min-h-screen min-w-full overflow-hidden flex flex-col justify-center items-center bg-cover bg-center"
       style={{ backgroundImage: "url('/loginbg.png')" }}
     >
-      <div className="-mt-72">
+      <div className="">
         <div className="flex flex-col items-center mb-8">
           <div className="relative translate-y-44 -translate-x-20 h-12 w-12 z-1 bg-white bg-opacity-20 rounded-lg shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100"></div>
           <div className="relative translate-y-52 -translate-x-16 h-8 w-8 z-50 bg-white bg-opacity-20 rounded-md shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100"></div>
@@ -32,7 +32,7 @@ const Loginapp = () => {
         </div>
 
         <Tilt>
-          <div className="container h-144 w-144 bg-white bg-opacity-10 rounded-full shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex flex-col justify-center items-center p-6">
+          <div className="container h-144 w-144 bg-white bg-opacity-10 rounded-full shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex flex-col justify-center items-center p-6 mb-20">
             <div className="text-center w-5/6 h-1/3 -mt-4">
               <div className="text-gray-700 font-poppins font-semibold text-3xl tracking-widest inline-block text-center mb-8">
                 <TypeAnimation
