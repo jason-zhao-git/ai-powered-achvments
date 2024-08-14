@@ -112,7 +112,7 @@ function FlowComponent({ flowKey }) {
   const [rfInstance, setRfInstance] = useState(null);
   const [cycleDetected, setCycleDetected] = useState(false);
 
-  const { setViewport, getNodes, getEdges, getViewport, fitView } =
+  const { setViewport, getNodes, getEdges, getViewport,setCenter, fitView } =
     useReactFlow();
 
   const onConnect = useCallback(
@@ -159,6 +159,7 @@ function FlowComponent({ flowKey }) {
 
   const addNode = (data) => {
     let newNode;
+    let newPosition = { x: Math.random() * 100, y: Math.random() * 100 };
     if (data.nodeType === "task") {
       const { name, nodeType, description, connections } = data;
       newNode = {
@@ -177,7 +178,7 @@ function FlowComponent({ flowKey }) {
           createdAt: new Date().toISOString(),
           completedAt: null,
         },
-        position: { x: Math.random() * 100, y: Math.random() * 100 },
+        position: newPosition,
         type: nodeType,
       };
     } else if (data.nodeType === "annotation") {
@@ -189,7 +190,7 @@ function FlowComponent({ flowKey }) {
           description: description,
           arrowStyle: arrowStyle,
         },
-        position: { x: Math.random() * 100, y: Math.random() * 100 },
+        position: newPosition,
         type: nodeType,
       };
     }
@@ -200,6 +201,23 @@ function FlowComponent({ flowKey }) {
     };
 
     setNodes((nds) => applyNodeChanges([nodeChange], nds));
+
+    setCenter(newPosition.x, newPosition.y, {
+      duration: 1000, // Adjust duration as needed
+      zoom: 2.0, 
+    });
+
+    toast.success(<div>Node &quot;{newNode.data.name}&quot; created!</div>, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      className: "toast-success",
+    });
   };
 
   const nodeColor = (node) => {
