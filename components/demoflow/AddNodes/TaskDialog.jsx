@@ -37,7 +37,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useReactFlow } from "@xyflow/react";
 
-const TaskDialog = ({  id ,nodeData, onSave }) => {
+const TaskDialog = ({ id ,nodeData, onSave }) => {
   const {
     name,
     description,
@@ -59,16 +59,18 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
   const findParentNodes = (nodeId) => {
     const edges = getEdges();
     const parentNodes = [];
-
+    
     edges.forEach(edge => {
+      console.log(nodeId)
       if (edge.target === nodeId) {
         const parentNode = getNode(edge.source);
+        
         if (parentNode) {
           parentNodes.push(parentNode);
         }
       }
     });
-
+   
     return parentNodes;
   };
 
@@ -96,6 +98,7 @@ const TaskDialog = ({  id ,nodeData, onSave }) => {
   const handleToggleCompletion = () => {
     if (!taskCompleted) {
       const parentNodes = findParentNodes(id)
+      console.log(parentNodes)
       if (!checkParentNodesCompletion(parentNodes)) {
         toast.error("All parent tasks must be completed before completing this task.", {
           position: "top-right",

@@ -252,7 +252,7 @@ function TaskNode ({ id, data, isConnectable, dragging }) {
         )}
         {dialogOpen && (
           <div className="absolute -ml-1 -mt-4 z-20">
-            <TaskDialog nodeData={nodeData} onSave={handleSave} />
+            <TaskDialog id={id} nodeData={nodeData} onSave={handleSave} />
           </div>
         )}
       </div>
