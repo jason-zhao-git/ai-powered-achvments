@@ -34,7 +34,7 @@ const Loginapp = () => {
         <Tilt>
           <div className="container h-144 w-144 bg-white bg-opacity-10 rounded-full shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex flex-col justify-center items-center p-6 mb-20">
             <div className="text-center w-5/6 h-1/3 -mt-4">
-              <div className="text-gray-700 font-poppins font-semibold text-3xl tracking-widest inline-block text-center mb-8">
+              <div className="text-gray-300/90 font-poppins font-semibold text-3xl tracking-widest inline-block text-center mb-8">
                 <TypeAnimation
                   sequence={[
                     "Your Life,\n Your Path,\n Your Achievements!",
@@ -63,7 +63,7 @@ const Loginapp = () => {
             >
               <Button
                 variant={"outline"}
-                className="w-3/4 bg-white bg-opacity-10 shadow-lg relative z-10 border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 text-gray-900/90 rounded-lg p-2 flex items-center justify-center text-md font-semibold"
+                className="w-3/4 bg-white bg-opacity-10 shadow-lg relative z-10 border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 text-gray-300/90 rounded-lg p-2 flex items-center justify-center text-md font-semibold"
               >
                 Log In With
                 <img
